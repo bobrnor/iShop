@@ -1,0 +1,178 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+header, nav, section, article, aside, footer {
+	display: block;
+}
+
+body {
+	font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+	width: 100%;
+	height: 100%;
+	background-color: #343434;
+}
+
+p {
+	margin: 0 0 18px
+}
+
+img {
+	border: none;
+}
+
+#wraper {
+	width: 1280px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+	height: 92px;
+	background: #1a1a1a;
+	width:100%;
+}
+
+#head{
+	width: 960px;
+	margin: 0 auto 0;
+	height: 100%;
+	border-collapse:collapse;
+}
+
+#logo{
+	padding-top: 5px;
+	width:257px;
+}
+
+#logo a, logo a:visited, logo a:hover{
+	color: #fff;
+	font-family: Verdana;
+	font-size: 30px; /*!!!*/
+	text-decoration:none;
+	font-weight:100;
+}
+
+.nav-link {
+	border-left: 1px solid #343434;
+	border-right: 1px solid #343434;
+	text-align:center;
+	/*margin:a;*/
+}
+
+.nav-link a, nav-link a:visited {
+	text-align:center;
+	text-decoration:none;
+	color: #999999;
+	font: 16px Arial; 
+}
+
+.nav-link a:hover{
+	text-decoration:none;
+	color: #fff;
+}
+
+#basket {
+	text-align: center;
+	background-image: url(/images/basket.png);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+#bas_pic{
+	padding-top: 5px;
+	opacity: 0;
+}
+
+#bas_pic:hover{
+	opacity: 1.0;
+	transition: opacity 5s ease-in-out 2s;
+}
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#w_content {
+	padding: 0 0 107px;
+	height: 500px;
+	
+	background-image:url(/images/bg_1.png);
+	background-repeat:no-repeat;
+	background-position: 0px 176px;
+		
+}
+
+#line{
+	background:#4d4d4d;
+	height:1px;
+	width: 925px;
+	margin: 0 auto 0;
+	position:relative;
+	top: 475px;
+}
+
+#bonus{
+	width:960px;
+	margin:0 auto 0;
+	padding-left: 30px;
+}
+
+.tab_td{
+	padding-top: 35px;
+	width: 320px;
+	vertical-align:top;
+}
+.tab_td h1{
+	color:#FFF;
+	font: 13pt/16pt Helvetica;
+}
+
+.num{
+	background-image:url(/images/yCircle.png);
+	background-repeat:no-repeat;
+	color: #ffd400;
+	font: 42pt/80px Helvetica, Arial, sans-serif;
+	width: 80px;
+	text-align:center;
+	vertical-align:top;
+}
+
+.info{
+	padding-left: 16px;
+	padding-right: 16px;
+	display:block;
+	color: #8c8c8c;
+	font: 11pt/13pt Helvetica;
+}
+
+
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+	width: 100%;
+	margin: 0px auto 0;
+	height: 67px;
+	background: #4d4d4d;
+	position: relative;
+}
+#foot_info{
+	width: 960px;
+	margin: 0 auto 0;
+	padding-top: 15px;
+	color: #999999;
+	font: 12px/21px Verdana;
+	font-weight:500;
+	
+}
