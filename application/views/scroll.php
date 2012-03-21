@@ -6,22 +6,40 @@
     
 <!-- root element for the items -->
 <div class="items">
+    
+    <?php
+        $n = count($pr);
+        $i=0;
+        while ($i<$n)
+        {
+            echo "<div>";
+            $j=0;
+            while(($j<4)and($i<$n))
+            {
+                echo "<a href='#'><img src='".$pr[$i]."' /></a>";
+                $j++;
+                $i++;
+            }
+             echo "</div>";
+        }
+
+    ?>
        
-  <!-- 1-4 -->
+  <!-- 1-4 
   <div>
      <a href="#"><img src="/images/items/Bravo-07_prev.png" /></a>
      <img src="/images/items/Dynamite-03_prev.png" />
      <img src="/images/items/stomp-101_prev.png" />
      <img src="/images/items/Bravo-07_prev.png" />
-  </div>
+  </div>-->
 
-          <!-- 5-8 -->
+          <!-- 5-8 
           <div>
           	 <img src="/images/items/Dynamite-03_prev.png" />
              <img src="/images/items/stomp-101_prev.png" />
              <img src="/images/items/Bravo-07_prev.png" />
              <img src="/images/items/Dynamite-03_prev.png" />
-          </div>
+          </div>-->
           
 </div>
 
