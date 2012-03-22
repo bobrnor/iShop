@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.44)
 # Database: ishop
-# Generation Time: 2012-03-22 18:05:35 +0000
+# Generation Time: 2012-03-22 18:25:27 +0000
 # ************************************************************
 
 
@@ -30,6 +30,21 @@ CREATE TABLE `categories` (
   `name` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table news
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `news`;
+
+CREATE TABLE `news` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `text` text NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
 
