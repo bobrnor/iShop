@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.44)
 # Database: ishop
-# Generation Time: 2012-03-23 06:17:07 +0000
+# Generation Time: 2012-03-23 20:05:12 +0000
 # ************************************************************
 
 
@@ -83,25 +83,25 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
-  `article` varchar(255) NOT NULL DEFAULT '',
   `image_url` varchar(255) DEFAULT NULL,
   `price` double NOT NULL,
   `category` int(11) NOT NULL,
+  `description` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 
-INSERT INTO `products` (`id`, `name`, `article`, `image_url`, `price`, `category`)
+INSERT INTO `products` (`id`, `name`, `image_url`, `price`, `category`, `description`)
 VALUES
-	(1,'Product 1','1','nothing1',100,1),
-	(2,'Product 2','1','nothing2',300,1),
-	(3,'Product 3','2','nothing3',200,3),
-	(4,'Product 4','3','nothing4',123123,2),
-	(5,'Product 5','23','nothing5',1222,2),
-	(6,'Product 6','2222','nothing6',999,5),
-	(7,'Product 7','666','nothing7',666,666);
+	(1,'Product 1','nothing1',100,1,'Product\ndescription 1'),
+	(2,'Product 2','nothing2',300,1,'Product\ndescription 2'),
+	(3,'Product 3','nothing3',200,3,'Product\ndescription 3'),
+	(4,'Product 4','nothing4',123123,2,'Product\ndescription 4'),
+	(5,'Product 5','nothing5',1222,2,'Product\ndescription 5'),
+	(6,'Product 6','nothing6',999,5,'Product\ndescription 6'),
+	(7,'Product 7','nothing7',666,666,'Product\ndescription 7');
 
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;

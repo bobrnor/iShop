@@ -18,11 +18,27 @@ class ProductInfo {
     
     public $id;
     public $name;
-    public $article;
-    public $imageUrl;
+    public $description;
+    private $imageUrl;
+    private $previewImageUrl;
     public $price;
     public $category;
     public $sizes;
+    
+    public function setImageUrl($value) {
+        
+        $this->imageUrl = $value;
+    }
+    
+    public function getImageUrl() {
+        
+        return "/images/items/".$this->imageUrl;
+    }
+    
+    public function getPreviewImageUrl() {
+        
+        return "/images/items/preview_".$this->imageUrl;
+    }
 }
 
 ?>

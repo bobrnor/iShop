@@ -28,7 +28,7 @@ class ProductsStuff {
     
     public function getProducts($searchString, $category, $from, $to) {
         
-        $query = "SELECT p.id as pid, p.name, p.article, p.image_url, 
+        $query = "SELECT p.id as pid, p.name, p.description, p.image_url, 
             p.price, c.id as cid, c.name as cat_name, s.id as sid, s.value as size
             FROM products p, categories c, sizes s, products_sizes ps 
             WHERE p.id = ps.pid AND s.id = ps.sid AND p.category = c.id";
@@ -58,8 +58,8 @@ class ProductsStuff {
                 
                 $product->id = $row["pid"];
                 $product->name = $row["name"];
-                $product->article = $row["article"];
-                $product->imageUrl = $row["image_url"];
+                $product->description = $row["description"];
+                $product->setImageUrl($row["image_url"]);
                 $product->price = $row["price"];
 
                 $category = new ProductCategory();
