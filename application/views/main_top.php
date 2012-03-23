@@ -7,6 +7,7 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="/style/style.css" type="text/css" media="screen, projection" />
+        <link rel="stylesheet" href="/style/tovar_style.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/style/scrollable-horizontal.css" media="screen, projection" />
     <link rel="stylesheet" type="text/css" href="/style/scrollable-buttons.css" media="screen, projection" />
     <link rel="stylesheet" type="text/css" href="/style/scrollable-navigator.css" media="screen, projection"/>
@@ -18,7 +19,7 @@
 <header id="header">
 	<table id="head">
     	<tr>
-        	<td id="logo"><a href="index.html">SHOES</a></td>
+        	<td id="logo"><a href="/index.php">SHOES</a></td>
             <td class="nav-link" width="150px"><a href="#">Новости</a></td>
             <td class="nav-link" width="150px"><a href="#">Каталог</a></td>
             <td class="nav-link" width="126px"><a href="#">О нас</a></td>
@@ -31,4 +32,4 @@
 
 <div id="wraper">
 
-<div id="w_content">
+

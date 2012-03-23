@@ -1,3 +1,5 @@
+<div id="w_content">
+
 <!-- "previous page" action -->
 <a class="prev browse left"></a>
     
@@ -8,7 +10,7 @@
 <div class="items">
     
     <?php
-        $n = count($pr);
+        $n = count($stuff);
         $i=0;
         while ($i<$n)
         {
@@ -16,30 +18,14 @@
             $j=0;
             while(($j<4)and($i<$n))
             {
-                echo "<a href='#'><img src='".$pr[$i]."' /></a>";
+               echo "<a href='http://localhost/index.php/items/item/".((string)$i)."'>
+                    <img src='/images/items/preview_".($stuff[$i]->imageUrl)."' /></a>";
                 $j++;
                 $i++;
             }
              echo "</div>";
         }
-
     ?>
-       
-  <!-- 1-4 
-  <div>
-     <a href="#"><img src="/images/items/Bravo-07_prev.png" /></a>
-     <img src="/images/items/Dynamite-03_prev.png" />
-     <img src="/images/items/stomp-101_prev.png" />
-     <img src="/images/items/Bravo-07_prev.png" />
-  </div>-->
-
-          <!-- 5-8 
-          <div>
-          	 <img src="/images/items/Dynamite-03_prev.png" />
-             <img src="/images/items/stomp-101_prev.png" />
-             <img src="/images/items/Bravo-07_prev.png" />
-             <img src="/images/items/Dynamite-03_prev.png" />
-          </div>-->
           
 </div>
 
@@ -85,3 +71,5 @@
     </tr>
     </table>
     </div>
+ 
+ </div><!-- #content-->

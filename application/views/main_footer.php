@@ -1,5 +1,3 @@
-</div><!-- #content-->
-
 </div><!-- #wrapper -->
 
 <footer id="footer">

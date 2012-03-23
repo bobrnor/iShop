@@ -41,6 +41,7 @@ img {
 	height: 92px;
 	background: #1a1a1a;
 	width:100%;
+	min-width: 1280px;
 }
 
 #head{
@@ -67,7 +68,6 @@ img {
 	border-left: 1px solid #343434;
 	border-right: 1px solid #343434;
 	text-align:center;
-	/*margin:a;*/
 }
 
 .nav-link a, nav-link a:visited {
@@ -166,6 +166,7 @@ img {
 	height: 67px;
 	background: #4d4d4d;
 	position: relative;
+	min-width: 1280px;
 }
 #foot_info{
 	width: 960px;

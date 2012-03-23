@@ -1,0 +1,82 @@
+#content{
+	width: 960px;
+	margin: 0 auto 0; 
+	padding-top: 45px;
+	height: 500px;
+}
+
+.arrow{
+	width: 48px;
+	/*padding-top: 185px;*/
+	vertical-align:middle;
+}
+
+#shoes{
+	width: 432px;
+	vertical-align:middle;
+	text-align:center;
+}
+
+#shoe-info{
+	width: 432px;
+	padding-left: 40px;
+	padding-right: 100px;
+	vertical-align:top;
+}
+
+#shoe-info h1{
+	color:#FFF;
+	font: 36px/38px Verdana;
+	padding-bottom: 21px;
+}
+
+#shoe-info p{
+	color: #999999;
+	font: 11pt/13pt Verdana;
+	padding-bottom: 30px;
+}
+
+#shoe-info a, shoe-info a:hover, shoe-info a:visited, shoe-info a:active{
+	text-decoration: none;
+}
+
+#active_size{
+	background-image:url(/images/grey_full_circle.png);
+	color: #343434;
+	
+}
+.av_size{
+	width: 47px;
+	height: 47px;
+	margin-right: 12px;
+	display:inline;
+	float:left;
+	background-image:url(/images/grey_circle.png);
+	background-repeat:no-repeat;
+	color: #999999;
+	padding-top: 9px;
+	text-align:center;
+	font: 16pt Verdana;
+}
+
+
+
+#tovar_line{
+	height: 1px;
+	width: 270px;
+	background-color: #999999;
+	display:block;
+	position:relative;
+	top: 110px;
+}
+
+#price{
+	color:#ffd400;
+	font: 40pt Verdana;
+	padding-top: 120px;
+	padding-bottom: 20px;
+}
+
+#to_bas{
+	margin-bottom: 40px;
+}

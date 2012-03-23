@@ -3,8 +3,8 @@
 include_once "business_logic/productsStuff.php";
 include_once "business_logic/newsStuff.php";
 
-class Mainpage extends CI_Controller {
-    public function index()
+class Items extends CI_Controller {
+    public function item($id)
 	{
 //            Exmaple of using products stuff
 //            $productsStuff = new ProductsStuff();
@@ -13,17 +13,11 @@ class Mainpage extends CI_Controller {
 //            Example of using news stuff
 //            $newsStuff = new NewsStuff();
 //            $newsStuff->getNews(NULL, 0, 100);
-        
-        
-            $this->load->view('main_top'); 
-            $productsStuff = new ProductsStuff();
-            $stuff = $productsStuff->getProducts(NULL, -1, 0, 100);
-
-            $data['stuff']=$stuff;
             session_start();
-            $_SESSION['currentStuff']=$stuff;
-            $data['stuff']=$stuff;
-            $this->load->view('scroll',$data); 
+            $this->load->view('main_top'); 
+            
+            $data['id']=$id;
+            $this->load->view('one_item',$data); 
             $this->load->view('main_footer'); 
        	}
 }
