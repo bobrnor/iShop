@@ -54,7 +54,7 @@ class ProductsStuff {
             }
             else {
                 $product = new ProductInfo();
-                $products[] = $product;
+                $products[$row["pid"]] = $product;
                 
                 $product->id = $row["pid"];
                 $product->name = $row["name"];
@@ -78,7 +78,7 @@ class ProductsStuff {
         
         $this->disconnectDb();
         
-//        print_r($products);
+        print_r($products);
         
         return $products;
     }
