@@ -15,6 +15,8 @@
 		}
 </script>
 
+<link rel='stylesheet' href='/style/tovar_style.css' type='text/css' media='screen, projection' /> 
+
 <div id="content">
     <?php $stuff = $_SESSION['currentStuff']; ?>
     <div id="back_arrow"><a href="javascript:javascript:history.go(-1)"><img src="<?=base_url()?>images/back_arrow.png" width="78" height="78" /></a></div>

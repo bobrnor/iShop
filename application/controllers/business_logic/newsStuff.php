@@ -39,7 +39,7 @@ class NewsStuff {
         
         $query .= " LIMIT $from, $to";
         
-        print_r($query);
+//        print_r($query);
         
         $this->connectDb();
         
@@ -59,7 +59,7 @@ class NewsStuff {
         
         $this->disconnectDb();
         
-        print_r($news);
+   //     print_r($news);
         
         return $news;
     }

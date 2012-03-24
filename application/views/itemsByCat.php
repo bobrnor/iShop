@@ -4,23 +4,20 @@
     <div id="content">
         <?php 
         $stuff=$_SESSION['currentStuff'];
-        $n = count($stuff);
-        $i=1;
-        
-        for ($i=1; $i<=$n; $i++): ?>
+        foreach ($stuff as $good): ?>
             <div class="catalogItem">
                 <?php
-                    echo "<a href='/index.php/items/item/".(string)$i."'>";
-                    echo "<img src='".$stuff[$i]->getImageUrl()."' width='216' height='270' />";
-                    echo "<p>".$stuff[$i]->name."</p></a>";
+                    echo "<a href='/index.php/items/item/".(string)$good->id."'>";
+                    echo "<img src='".$good->getImageUrl()."' width='216' height='270' />";
+                    echo "<p>".$good->name."</p></a>";
 
                 ?>
                 <div id='price-in-catalog'>
                     <a href='#'><img src='/images/small_basket_hover.png' align='right'/></a>
-                    <p><?=$stuff[$i]->price?> P.</p>
+                    <p><?=$good->price?> P.</p>
                 </div>
             </div> <!-- .catalogItem -->
-        <? endfor; ?>
+        <? endforeach; ?>
  
     </div><!-- #content-->
 </div><!-- #container-->
