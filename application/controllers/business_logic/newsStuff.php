@@ -19,7 +19,7 @@ class NewsStuff {
         
         mysql_connect("localhost", "root", "");
         mysql_select_db("ishop");
-        mysql_query("SET NAMES 'cp1251'");
+        mysql_set_charset("utf8");
     }
     
     function disconnectDb() {
