@@ -19,6 +19,7 @@ class ProductsStuff {
         
         mysql_connect("localhost", "root", "");
         mysql_select_db("ishop");
+        mysql_query("SET NAMES 'cp1251'");
     }
     
     function disconnectDb() {
