@@ -11,18 +11,20 @@
     
     <?php
         $n = count($stuff);
-        $i=0;
-        while ($i<$n)
+        $i=1;
+        while ($i<=$n)
         {
             echo "<div>";
             $j=0;
-            while(($j<4)and($i<$n))
+            while(($j<4)and($i<=$n))
             {
                echo "<a href='http://localhost/index.php/items/item/".((string)$i)."'>
-                    <img src='/images/items/preview_".($stuff[$i]->imageUrl)."' /></a>";
+                    <img src='".($stuff[$i]->getPreviewImageUrl())."' /></a>";
                 $j++;
                 $i++;
             }
+         /*   if ($i>8)
+            {die("sdf");}*/
              echo "</div>";
         }
     ?>

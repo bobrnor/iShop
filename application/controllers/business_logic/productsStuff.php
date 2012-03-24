@@ -78,7 +78,7 @@ class ProductsStuff {
         
         $this->disconnectDb();
         
-        print_r($products);
+//        print_r($products);
         
         return $products;
     }

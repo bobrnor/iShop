@@ -21,16 +21,16 @@
     <table><tr>
     	<td class="arrow">
             <?php 
-                if (($id>0)&&(count($stuff)>1))
+                if (($id>1)&&(count($stuff)>1))
                 {
                     echo "<a href='http://localhost/index.php/items/item/".((string)($id-1))."'><img src='/images/grey_left_arrow.png' width=48 height=95 /></a>";
                 }
             ?>
         </td>
-        <td id="shoes"><img src= <?php echo "/images/items/".$stuff[$id]->imageUrl; ?> /> </td>
+        <td id="shoes"><img src= <?php echo $stuff[$id]->getImageUrl(); ?> /> </td>
         <td id="shoe-info">
         	<h1> <?php echo $stuff[$id]->name; ?></h1>
-            <p> Название говорит само за себя - Bravo! Еще больше необычных, яких и стильных туфель на столь актуальной танкетке. </p>
+            <p> <?php echo $stuff[$id]->description; ?> </p>
             <form>
             	<input type="hidden" name="cursize" value="0">  
                 <?php 
@@ -50,7 +50,7 @@
         
         <td> 
             <?php 
-                if (($id<count($stuff)-1)&&(count($stuff)>1))
+                if (($id<count($stuff))&&(count($stuff)>1))
                 {
                     echo "<a href='http://localhost/index.php/items/item/".((string)($id+1))."'><img src='/images/grey_right_arrow.png' width=48 height=95 /></a>";
                 }

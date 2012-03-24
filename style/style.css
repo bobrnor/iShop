@@ -14,8 +14,12 @@ header, nav, section, article, aside, footer {
 body {
 	font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
 	width: 100%;
+        
+	min-height: 100%;
+	height: auto !important;
 	height: 100%;
 	background-color: #343434;
+	position:relative;
 }
 
 p {
@@ -29,9 +33,9 @@ img {
 #wraper {
 	width: 1280px;
 	margin: 0 auto;
-	min-height: 100%;
+	/*min-height: 100%;
 	height: auto !important;
-	height: 100%;
+	height: 100%;*/
 }
 
 
@@ -162,11 +166,13 @@ img {
 -----------------------------------------------------------------------------*/
 #footer {
 	width: 100%;
-	margin: 0px auto 0;
+	/*margin: 0px auto 0;*/
 	height: 67px;
 	background: #4d4d4d;
-	position: relative;
+	/*position: relative;*/
 	min-width: 1280px;
+        position: absolute;
+	bottom: 0;
 }
 #foot_info{
 	width: 960px;
@@ -176,4 +182,19 @@ img {
 	font: 12px/21px Verdana;
 	font-weight:500;
 	
+}
+
+#middle {
+	width: 100%;
+	padding: 0 0 78px;
+	height: 1%;
+	position: relative;
+}
+
+#middle:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
 }
