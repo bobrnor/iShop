@@ -80,3 +80,12 @@
 #to_bas{
 	margin-bottom: 40px;
 }
+
+#footer {
+	width: 100%;
+	margin: 0px auto 0;
+	height: 67px;
+	background: #4d4d4d;
+	position: relative;
+	min-width: 1280px;
+}

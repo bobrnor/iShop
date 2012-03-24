@@ -31,5 +31,6 @@
 </header><!-- #header-->
 
 <div id="wraper">
+    <section id="middle">
 
 

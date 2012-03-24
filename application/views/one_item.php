@@ -23,7 +23,7 @@
             <?php 
                 if (($id>1)&&(count($stuff)>1))
                 {
-                    echo "<a href='http://localhost/index.php/items/item/".((string)($id-1))."'><img src='/images/grey_left_arrow.png' width=48 height=95 /></a>";
+                    echo "<a href='/index.php/items/item/".((string)($id-1))."'><img src='/images/grey_left_arrow.png' width=48 height=95 /></a>";
                 }
             ?>
         </td>
@@ -52,7 +52,7 @@
             <?php 
                 if (($id<count($stuff))&&(count($stuff)>1))
                 {
-                    echo "<a href='http://localhost/index.php/items/item/".((string)($id+1))."'><img src='/images/grey_right_arrow.png' width=48 height=95 /></a>";
+                    echo "<a href='/index.php/items/item/".((string)($id+1))."'><img src='/images/grey_right_arrow.png' width=48 height=95 /></a>";
                 }
             ?>
         

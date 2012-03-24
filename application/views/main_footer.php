@@ -1,3 +1,4 @@
+    </section><!-- #middle-->
 </div><!-- #wrapper -->
 
 <footer id="footer">
