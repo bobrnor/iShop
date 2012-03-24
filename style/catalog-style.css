@@ -1,0 +1,86 @@
+#wraper {
+	width: 960px;
+}
+
+#container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	padding-top: 45px;
+	padding-bottom: 45px;
+}
+#content {
+	padding: 0 0 0 216px;
+}
+
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+	padding-top: 45px;
+	float: left;
+	width: 216px;
+	margin-left: -100%;
+	position: relative;
+}
+
+#sideLeft a, sideLeft a:visited{
+	color: #999999;
+	font: 16px/50px Verdana;
+	text-decoration:none;
+}
+
+.category{
+	list-style:none;
+	margin-bottom: 10px;
+	padding-left: 15px;
+	background-color:#262626;
+	border-top: 1px solid #2c2c2c;
+}
+
+#active{
+	background-color:#ffd400;
+	border-top: 1px #ae9415 solid;
+	color:#000;
+}
+#active a, active a:visited{
+	color:#000;
+}
+
+.catalogItem{
+	width: 216px;
+	margin-left: 32px;
+	display: block;
+	float:left;
+	border-bottom: 1px solid #999999;
+}
+
+.catalogItem a, .catalogItem a:hover, .catalogItem a:visited{
+	color:#FFF;
+	text-decoration:none;
+	font: 17px Verdana;
+}
+
+#price-in-catalog{
+	color:#ffd400;
+        height:32px;
+	font: 30px/32px Verdana;
+	margin-top: -30px;
+	background-image:url(/images/small_basket.png);
+	background-repeat:no-repeat;
+	background-position:right;
+	
+}
+
+#price-in-catalog img{
+	opacity: 0.0;
+	position:relative;
+	top: 5px;
+}
+
+
+#price-in-catalog img:hover{
+	opacity: 1.0;
+	transition: opacity 5s ease-in-out 2s;
+}
+

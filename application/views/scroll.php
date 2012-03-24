@@ -18,7 +18,7 @@
             $j=0;
             while(($j<4)and($i<=$n))
             {
-               echo "<a href='/index.php/items/item/".((string)$i)."'>
+               echo "<a href='".base_url()."index.php/items/item/".((string)$i)."'>
                     <img src='".($stuff[$i]->getPreviewImageUrl())."' /></a>";
                 $j++;
                 $i++;
