@@ -102,7 +102,6 @@ class ProductsStuff {
     public function addProduct(ProductInfo $productInfo) {
         
         $this->connectDb();        
-        $result = mysql_query($query);
         
         $category = $productInfo->category;
         $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES ($category->name)";
@@ -143,7 +142,6 @@ class ProductsStuff {
     public function removeProduct(ProductInfo $productInfo) {
         
         $this->connectDb();        
-        $result = mysql_query($query);
         
         $query = "DELETE FROM products_sizes WHERE pid = $productInfo->id";
         mysql_query($query);
@@ -157,7 +155,6 @@ class ProductsStuff {
     public function editProduct(ProductInfo $productInfo) {
         
         $this->connectDb();        
-        $result = mysql_query($query);
         
         $category = $productInfo->category;
         $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES ($category->name)";
@@ -175,7 +172,8 @@ class ProductsStuff {
             image_url = $productInfo->getImageURL(), 
             price = $productInfo->price,  
             category = $category->id, 
-            description = $productInfo->description)";
+            description = $productInfo->description)
+            WHERE id = $productInfo->id";
         
         mysql_query($productQuery);
         

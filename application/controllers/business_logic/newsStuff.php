@@ -73,6 +73,41 @@ class NewsStuff {
         
         return $this->getNews(NULL, 0, 10);
     }
+    
+    public function addNews(NewsInfo $newsInfo) {
+        
+        $this->connectDb();
+        
+        $query = "INSERT INTO news (title, text, date)
+            VALUES ($newsInfo->title, $newsInfo->text, $newsInfo->date)";
+        mysql_query($query);
+        
+        $this->disconnectDb();
+    }
+    
+    public function removeNews(NewInfo $newsInfo) {
+        
+        $this->connectDb();
+        
+        $query = "DELETE FROM news WHERE id = $newsInfo->id";
+        mysql_query($query);
+        
+        $this->disconnectDb();
+    }
+    
+    public function editNews(NewsInfo $newsInfo) {
+        
+        $this->connectDb();
+        
+        $query = "UPDATE news 
+        SET (title = $newsInfo->title, 
+                text = $newsInfo->text, 
+                date = $newsInfo->date)
+        WHERE id = $newsInfo->id";
+        mysql_query($query);
+        
+        $this->disconnectDb();
+    }
 }
 
 ?>
