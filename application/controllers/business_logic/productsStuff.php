@@ -98,6 +98,103 @@ class ProductsStuff {
         
         return $this->getProducts(NULL, $category, $from, $to);
     }
+    
+    public function addProduct(ProductInfo $productInfo) {
+        
+        $this->connectDb();        
+        $result = mysql_query($query);
+        
+        $category = $productInfo->category;
+        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES ($category->name)";
+        mysql_query($categoryQuery);
+        
+        $categoryQuery = "SELECT id FROM categories WHERE name = $category->name";
+        $result = mysql_query($categoryQuery);
+        $row = mysql_fetch_array($result);
+        
+        $category->id = $row["id"];
+
+        $productQuery = "INSERT INTO products 
+            (name, image_url, price, category, description) 
+            VALUES ($productInfo->name, 
+                $productInfo->getImageURL(), 
+                $productInfo->price, 
+                $category->id, 
+                $productInfo->description)";
+        
+        mysql_query($productQuery);
+        
+        $pid = mysql_insert_id();
+        
+        $sizesQuery = "INSERT INTO products_sizes (pid, sid) VALUES ";
+        
+        foreach ($productInfo->sizes as $i => $size) {
+            if ($i > 0) {
+                $sizesQuery .= ", ";
+            }
+            $sizesQuery .= " ($pid, $size->id)";
+        }
+        
+        mysql_query($sizesQuery);
+        
+        $this->disconnectDb();
+    }
+    
+    public function removeProduct(ProductInfo $productInfo) {
+        
+        $this->connectDb();        
+        $result = mysql_query($query);
+        
+        $query = "DELETE FROM products_sizes WHERE pid = $productInfo->id";
+        mysql_query($query);
+        
+        $query = "DELETE FROM products WHERE id = $productInfo->id";
+        mysql_query($query);
+        
+        $this->disconnectDb();
+    }
+    
+    public function editProduct(ProductInfo $productInfo) {
+        
+        $this->connectDb();        
+        $result = mysql_query($query);
+        
+        $category = $productInfo->category;
+        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES ($category->name)";
+        mysql_query($categoryQuery);
+        
+        $categoryQuery = "SELECT id FROM categories WHERE name = $category->name";
+        $result = mysql_query($categoryQuery);
+        $row = mysql_fetch_array($result);
+        
+        $category->id = $row["id"];
+
+        $productQuery = "UPDATE products 
+            SET 
+            (name = $productInfo->name, 
+            image_url = $productInfo->getImageURL(), 
+            price = $productInfo->price,  
+            category = $category->id, 
+            description = $productInfo->description)";
+        
+        mysql_query($productQuery);
+        
+        $query = "DELETE FROM products_sizes WHERE pid = $productInfo->id";
+        mysql_query($query);
+        
+        $sizesQuery = "INSERT INTO products_sizes (pid, sid) VALUES ";
+        
+        foreach ($productInfo->sizes as $i => $size) {
+            if ($i > 0) {
+                $sizesQuery .= ", ";
+            }
+            $sizesQuery .= " ($productInfo->id, $size->id)";
+        }
+        
+        mysql_query($sizesQuery);
+        
+        $this->disconnectDb();
+    }
 }
 
 ?>
