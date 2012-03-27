@@ -99,6 +99,28 @@ class ProductsStuff {
         return $this->getProducts(NULL, $category, $from, $to);
     }
     
+    public function getAllCategories() {
+        
+        $this->connectDb();  
+        
+        $query = "SELECT id, name FROM categories";
+        $result = mysql_query($query);
+        
+        $categories = array();
+        
+        while ($row = mysql_fetch_array($result)) {
+            $category = new ProductCategory();
+            $category->id = $row["id"];
+            $category->name = $row["name"];
+            
+            $categories[] = $category;
+        }
+        
+        $this->disconnectDb();
+        
+        return $categories;
+    }
+    
     public function addProduct(ProductInfo $productInfo) {
         
         $this->connectDb();        
