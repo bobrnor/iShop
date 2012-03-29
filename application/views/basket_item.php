@@ -1,8 +1,10 @@
 <div class="itemInfo">
-    <img src="images/items/big/bravo-07.png" class="orderImg" />
-    <img src="images/basket_remove.png" class="btnRmv"  align="right"/>
-    <h1> Тапки заморские </h1>
-    <p>Название говорит само за себя - Bravo! Еще больше необычных, яких и стильных туфель на столь актуальной танкетке.</p>
-    <div id="choosen">Выбранный размер:</div><div class="ch_size" >37</div>
-    <div id="price">1000 P.</div>
+    <form name="orderItem" method="post">
+        <img src="<?=$product->getImageUrl()?>" class="orderImg" />
+        <img onCLick="orderItem.submit()" src="/images/basket_remove.png" class="btnRmv"  align="right"/>
+        <h1> <?php echo $product->name; ?> </h1>
+        <p><?php echo $product->description; ?></p>
+        <div id="choosen">Выбранный размер:</div><div class="ch_size" ><?php echo $product->orderedSize; ?></div>
+        <div id="price"> <?php echo ($product->price)." Р."; ?></div>
+    </form>
 </div>

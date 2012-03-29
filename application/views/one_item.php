@@ -57,18 +57,11 @@
                         if ($_POST['cursize'] == 0): ?>
                             <script type="text/javascript">alert("Размер не выбран!");</script>
                         <?php else:
-                            if (isset($_SESSION['basket'])==false){
-                                $_SESSION['basket'] = new basketStuff();
-                                die('dsd');
-                            }
-                            /*if (isset($_SESSION['basketStuff'])==false){
+                           if (isset($_SESSION['basketStuff'])==false){
                                 $_SESSION['basketStuff'] = new basketStuff();
                                 die('dsd');
                             }
                             $_SESSION['basketStuff']->addProduct($stuff[$_POST['stuff_id']], $_POST['cursize']);
-                            $orderInfo = $_SESSION['basketStuff']->getOrderInfo();*/
-                           // print_r($orderInfo->orderedProductsInfo);
-                            //$_SESSION['basketStuff']=$basketStuff;
                             echo "<p>Товар добавлен в корзину</p>";                            
                         endif;
                     }

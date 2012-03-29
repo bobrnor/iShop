@@ -47,7 +47,7 @@
 	margin-right: 12px;
 	display:inline;
 	float:left;
-	background-image:url(images/grey_full_circle.png);
+	background-image:url(/images/grey_full_circle.png);
 	background-repeat:no-repeat;
 	color: #343434;
 	padding-top: 9px;
@@ -70,7 +70,7 @@
 }
 
 #makeOrder{
-	margin-top: 40px;
+	margin-top: 30px;
 }
 
 #total{

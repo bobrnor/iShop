@@ -32,12 +32,13 @@ class ProductInfo {
     
     public function getImageUrl() {
         
-        return base_url()."images/items/".$this->imageUrl;
-    }
+       return base_url()."images/items/".$this->imageUrl;
+   }
     
     public function getPreviewImageUrl() {
         
         return base_url()."images/items/preview_".$this->imageUrl;
+       
     }
 }
 

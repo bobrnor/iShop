@@ -2,16 +2,23 @@
 <div id="content">
 <?php 
     if (isset($_SESSION['basketStuff'])){
-       // $basketStuff = $_SESSION['basketStuff'];
         $orderInfo = $_SESSION['basketStuff']->getOrderInfo();
         $orderProducts = $orderInfo->orderedProductsInfo;
-        if (count($orderInfo->orderedProductsInfo) == 0)
+        if (count($orderProducts) == 0)
             echo "<div id='empty'> Корзина пуста </div>";
         else{
-            echo "в корзине ".(string)count($orderInfo)." товаров";
+            $total=0;
+            foreach($orderProducts as $product){
+                $data['product']=$product;
+                $this->load->view('basket_item', $data); 
+                $total += $product->price;
+            }
+           echo "<div id='makeOrder'>";
+           echo "<a href='#'><img src='/images/basket_make_order.png' align='left'/></a>";
+           echo "<p id='total> P.</p></div>";
         }
     }
     else //ни разу не добавляли товар в корзину
-        echo "<div id='empty'> В корзину ничего не добавлено </div>";
+        echo "<div id='empty'> Корзина пуста </div>";
 ?>
 </div>
