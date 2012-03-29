@@ -48,6 +48,8 @@ class basketStuff {
         $orderInfo->userInfo = $this->userInfo;
         $orderInfo->orderedProductsInfo = $this->orderedProducts;
         
+       // print_r($orderInfo->orderedProductsInfo);
+        
         return $orderInfo;
     }
     

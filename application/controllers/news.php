@@ -7,9 +7,10 @@ class News extends CI_Controller {
     public function index()
     {
          $newsStuff = new NewsStuff();
-         $stuff = $newsStuff->getNews(NULL, 0, 5);
+         $stuff = $newsStuff->getNews(NULL, 0, 100);
          $data['newsStuff']=$stuff;
-         $this->load->view('main_top'); 
+         $data['activeLink']= 1;
+         $this->load->view('main_top', $data); 
          $this->load->view('news',$data);
          $this->load->view('main_footer');
     }

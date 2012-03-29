@@ -2,12 +2,14 @@
 
 include_once "business_logic/productsStuff.php";
 include_once "business_logic/newsStuff.php";
+include_once "business_logic/basketStuff.php";
 
 class Items extends CI_Controller {
     public function index()
     {
         session_start();
-        $this->load->view('main_top'); 
+        $data['activeLink']=2;
+        $this->load->view('main_top', $data); 
     
         $productsStuff = new ProductsStuff();
         $stuff = $productsStuff->getProducts(NULL, -1, 0, 100);
@@ -21,7 +23,8 @@ class Items extends CI_Controller {
     public function item($id)
 	{
             session_start();
-            $this->load->view('main_top'); 
+            $data['activeLink']=2;
+            $this->load->view('main_top', $data); 
             
             $data['id']=$id;
             $this->load->view('one_item',$data); 

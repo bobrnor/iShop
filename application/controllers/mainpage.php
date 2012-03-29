@@ -13,9 +13,9 @@ class Mainpage extends CI_Controller {
 //            Example of using news stuff
 //            $newsStuff = new NewsStuff();
 //            $newsStuff->getNews(NULL, 0, 100);
-        
-        
-            $this->load->view('main_top'); 
+            $id = -1;
+            $data['activeLink']=$id;
+            $this->load->view('main_top',$data); 
             $productsStuff = new ProductsStuff();
             $stuff = $productsStuff->getProducts(NULL, -1, 0, 100);
             $data['stuff']=$stuff;

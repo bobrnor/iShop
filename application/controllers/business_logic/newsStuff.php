@@ -79,17 +79,21 @@ class NewsStuff {
         $this->connectDb();
         
         $query = "INSERT INTO news (title, text, date)
-            VALUES ($newsInfo->title, $newsInfo->text, $newsInfo->date)";
+            VALUES ('".$newsInfo->title."', '".$newsInfo->text."', '".$newsInfo->date."')";
         mysql_query($query);
         
         $this->disconnectDb();
     }
     
-    public function removeNews(NewInfo $newsInfo) {
+    /*public function removeNews(NewInfo $newsInfo) {*/
+    public function removeNews($Id) {
         
         $this->connectDb();
         
-        $query = "DELETE FROM news WHERE id = $newsInfo->id";
+        //$query = "DELETE FROM news WHERE id = $newsInfo->id";
+        $query = "DELETE FROM news WHERE id = ".$Id;
+       // die($query);
+        
         mysql_query($query);
         
         $this->disconnectDb();

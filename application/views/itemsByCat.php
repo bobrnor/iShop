@@ -26,8 +26,18 @@
     <ul>
         <!-- здесь будет цикл, но пока нет функции =( -->
         <li class="category" <?php if ($catId == -1){echo "id='active'";} ?>><a href="/index.php/items/">Вся обувь</a></li>
-        <li class="category" <?php if ($catId == 1){echo "id='active'";} ?>> <a href="/index.php/items/itemsByCat/1/">Туфельки</a> </li>
+        <?php
+            $products = new ProductsStuff();
+            $cats = $products->getAllCategories();
+           // print_r($cats);
+          //  die((string)$catId);
+            foreach ($cats as $cat):?>
+                <li class="category" <?php if ($catId == $cat->id){echo "id='active'";} ?>>
+                    <a href="/index.php/items/itemsByCat/<?=(string)($cat->id)?>/"><?php echo $cat->name; ?></a> </li>
+        <?endforeach ?>
+        
+<!--        <li class="category" <?php /*if ($catId == 1){echo "id='active'";}*/ ?>> <a href="/index.php/items/itemsByCat/1/">Туфельки</a> </li>
         <li class="category" > <a href="#">Сапоги</a> </li>
-        <li class="category"> <a href="#">Ботинки</a></li>
+        <li class="category"> <a href="#">Ботинки</a></li>-->
     </ul>
 </aside><!-- #sideLeft -->

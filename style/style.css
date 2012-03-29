@@ -68,6 +68,10 @@ img {
 	font-weight:100;
 }
 
+#ac_link{
+	border-bottom: 2px solid #ffd400;
+}
+
 .nav-link {
 	border-left: 1px solid #343434;
 	border-right: 1px solid #343434;
@@ -94,7 +98,7 @@ img {
 }
 
 #bas_pic{
-	padding-top: 5px;
+	padding-top: 6px;
 	opacity: 0;
 }
 
