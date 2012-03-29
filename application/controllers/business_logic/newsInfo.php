@@ -10,6 +10,7 @@
  *
  * @author bobrnor
  */
+
 class NewsInfo {
     
     public $id;
