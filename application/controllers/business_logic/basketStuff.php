@@ -17,7 +17,7 @@ include_once "orderInfo.php";
 class basketStuff {
     
     private $userInfo;
-    private $orderedProducts;
+    private $orderedProducts = array();
     
     public function addProduct($productInfo, $size) {
         
@@ -25,7 +25,7 @@ class basketStuff {
         $orderedProduct->initWithProductInfo($productInfo);
         $orderedProduct->orderedSize = $size;
         
-        $orderedProducts[] = $orderedProduct;
+        $this->orderedProducts[] = $orderedProduct;
     }
     
     public function removeProduct($orderedProductInfo) {
@@ -47,8 +47,6 @@ class basketStuff {
         $orderInfo = new orderInfo();
         $orderInfo->userInfo = $this->userInfo;
         $orderInfo->orderedProductsInfo = $this->orderedProducts;
-        
-       // print_r($orderInfo->orderedProductsInfo);
         
         return $orderInfo;
     }

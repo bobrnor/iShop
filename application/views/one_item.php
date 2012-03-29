@@ -63,7 +63,7 @@
                             }
                             $_SESSION['basketStuff']->addProduct($stuff[$_POST['stuff_id']], $_POST['cursize']);
                             //$_SESSION['basketStuff']=$basketStuff;
-                            echo "<p>Товар добавлен в корзину</p>";
+                            echo "<p>Товар добавлен в корзину</p>";                            
                         endif;
                     }
                  ?>
