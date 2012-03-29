@@ -37,7 +37,7 @@ class NewsStuff {
             OR n.text LIKE \"%$searchString%\"";
         }
         
-        $query .= " LIMIT $from, $to";
+        $query .= " ORDER BY n.id DESC LIMIT $from, $to";
         
 //        print_r($query);
         
@@ -79,7 +79,8 @@ class NewsStuff {
         $this->connectDb();
         
         $query = "INSERT INTO news (title, text, date)
-            VALUES ('".$newsInfo->title."', '".$newsInfo->text."', '".$newsInfo->date."')";
+            VALUES (\"$newsInfo->title\", \"$newsInfo->text\", \"$newsInfo->date\")";
+
         mysql_query($query);
         
         $this->disconnectDb();
@@ -104,9 +105,9 @@ class NewsStuff {
         $this->connectDb();
         
         $query = "UPDATE news 
-        SET (title = $newsInfo->title, 
-                text = $newsInfo->text, 
-                date = $newsInfo->date)
+        SET (title = \"$newsInfo->title\", 
+                text = \"$newsInfo->text\", 
+                date = \"$newsInfo->date\")
         WHERE id = $newsInfo->id";
         mysql_query($query);
         

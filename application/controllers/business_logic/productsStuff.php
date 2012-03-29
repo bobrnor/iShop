@@ -126,10 +126,10 @@ class ProductsStuff {
         $this->connectDb();        
         
         $category = $productInfo->category;
-        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES ($category->name)";
+        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES (\"$category->name\")";
         mysql_query($categoryQuery);
         
-        $categoryQuery = "SELECT id FROM categories WHERE name = $category->name";
+        $categoryQuery = "SELECT id FROM categories WHERE name = \"$category->name\"";
         $result = mysql_query($categoryQuery);
         $row = mysql_fetch_array($result);
         
@@ -137,11 +137,11 @@ class ProductsStuff {
 
         $productQuery = "INSERT INTO products 
             (name, image_url, price, category, description) 
-            VALUES ($productInfo->name, 
+            VALUES (\"$productInfo->name\", 
                 $productInfo->getImageURL(), 
                 $productInfo->price, 
                 $category->id, 
-                $productInfo->description)";
+                \"$productInfo->description\")";
         
         mysql_query($productQuery);
         
@@ -179,10 +179,10 @@ class ProductsStuff {
         $this->connectDb();        
         
         $category = $productInfo->category;
-        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES ($category->name)";
+        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES (\"$category->name\")";
         mysql_query($categoryQuery);
         
-        $categoryQuery = "SELECT id FROM categories WHERE name = $category->name";
+        $categoryQuery = "SELECT id FROM categories WHERE name = \"$category->name\"";
         $result = mysql_query($categoryQuery);
         $row = mysql_fetch_array($result);
         
@@ -190,11 +190,11 @@ class ProductsStuff {
 
         $productQuery = "UPDATE products 
             SET 
-            (name = $productInfo->name, 
+            (name = \"$productInfo->name\", 
             image_url = $productInfo->getImageURL(), 
             price = $productInfo->price,  
             category = $category->id, 
-            description = $productInfo->description)
+            description = \"$productInfo->description\")
             WHERE id = $productInfo->id";
         
         mysql_query($productQuery);
