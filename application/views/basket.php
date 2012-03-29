@@ -1,7 +1,7 @@
 <link rel='stylesheet' href='/style/basket-style.css' type='text/css' media='screen, projection' /> 
 <div id="content">
 <?php 
-    if (isset ($_SESSION['basketStuff'])){
+    if (isset($_SESSION['basketStuff'])){
        // $basketStuff = $_SESSION['basketStuff'];
         $orderInfo = $_SESSION['basketStuff']->getOrderInfo();
         $orderProducts = $orderInfo->orderedProductsInfo;

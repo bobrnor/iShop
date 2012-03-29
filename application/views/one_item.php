@@ -69,7 +69,7 @@
                             $orderInfo = $_SESSION['basketStuff']->getOrderInfo();*/
                            // print_r($orderInfo->orderedProductsInfo);
                             //$_SESSION['basketStuff']=$basketStuff;
-                            echo "<p>Товар добавлен в корзину</p>";
+                            echo "<p>Товар добавлен в корзину</p>";                            
                         endif;
                     }
                  ?>
