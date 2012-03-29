@@ -30,6 +30,11 @@ class ProductInfo {
         $this->imageUrl = $value;
     }
     
+    public function getRawImageUrl() {
+        
+        return $this->imageUrl;
+    }
+    
     public function getImageUrl() {
         
        return base_url()."images/items/".$this->imageUrl;
