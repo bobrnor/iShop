@@ -22,7 +22,7 @@ class OrderedProductInfo extends ProductInfo {
         $this->id = $productInfo->id;
         $this->name = $productInfo->name;
         $this->description = $productInfo->description;
-        $this->setImageUrl($productInfo->getImageUrl());
+        $this->setImageUrl($productInfo->getRawImageUrl());
         $this->price = $productInfo->price;
         $this->category = $productInfo->category;
         $this->sizes = $productInfo->sizes;
