@@ -27,7 +27,7 @@ class UserManager {
     
     public function doesUsernameExist($username){
         $result;
-        $usernameQuery="SELECT * FROM users WHERE username=$username";
+        $usernameQuery="SELECT * FROM users WHERE username=\"$username\"";
         $this->connectDb();
         $queryResult=mysql_query($usernameQuery);
         //if (mysql_num_rows($queryResult)>0)
@@ -40,11 +40,11 @@ class UserManager {
         if (!$this->doesUsernameExist($userInfo->username)){
             $userQuery="INSERT INTO users
                 (address, fio, username, password, isAdmin, email) 
-                VALUES(\"$userInfo->address\",
-                    \"$userInfo->fio\",
-                    \"$userInfo->username\",
-                    \"$userInfo->password\",
-                    $userInfo->isAdmin,
+                VALUES(\"$userInfo->address\", 
+                    \"$userInfo->fio\", 
+                    \"$userInfo->username\", 
+                    \"$userInfo->password\", 
+                    $userInfo->isAdmin, 
                     \"$userInfo->email\")";
             $this->connectDb();
             mysql_query($userQuery);
