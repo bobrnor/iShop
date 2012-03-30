@@ -25,14 +25,20 @@
                         $userInfo->username =$_POST['login'];
                         $userManager = new UserManager();
                         $uid = $userManager->addUser($userInfo);
-                        $userInfo->uid = $uid;
-                        
+                       // die((string)$uid);
+                        if ($uid == -1): ?>
+                            <script type="text/javascript">alert("Пользователь с таким именем уже существует!");</script>
+                   <?php else:
+                         $userInfo->uid = $uid;
                          $_SESSION['hasLogined']=true;
                          if (isset($_SESSION['basketStuff'])==false){
                             $_SESSION['basketStuff'] = new basketStuff(); 
                          }
-                         $_SESSION['basketStuff']->setUserInfo($userInfo);                            
-                         header("Location: /index.php/");
+                         $_SESSION['basketStuff']->setUserInfo($userInfo);  ?>
+                          <script type="text/javascript">alert("Регистрация прошла успешно!");</script>
+                 <?php
+                        // header("Location: /index.php/");
+                         endif;
                     endif;
                 }
             ?>
