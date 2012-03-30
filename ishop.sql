@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.1.44)
 # Database: ishop
-# Generation Time: 2012-03-29 17:00:22 +0000
+# Generation Time: 2012-03-30 16:55:17 +0000
 # ************************************************************
 
 
@@ -140,6 +140,19 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table related_products
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `related_products`;
+
+CREATE TABLE `related_products` (
+  `pid` int(11) unsigned NOT NULL,
+  `rpid` int(11) unsigned NOT NULL,
+  UNIQUE KEY `rpid` (`rpid`,`pid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+
 # Dump of table sizes
 # ------------------------------------------------------------
 
@@ -167,18 +180,7 @@ VALUES
 /*!40000 ALTER TABLE `sizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `users`; 
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) unsigned NOT NULL,
-  `address` varchar(256) CHARACTER SET utf8 NOT NULL,
-  `fio` varchar(256) CHARACTER SET utf8 NOT NULL,
-  `username` varchar(128) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL,
-  `email` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

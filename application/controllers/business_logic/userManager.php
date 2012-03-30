@@ -25,20 +25,35 @@ class UserManager {
         mysql_close();
     }
     
-    public function addUser(UserInfo $userInfo){
-        $userQuery="INSERT INTO users
-            (address, fio, username, password, isAdmin, email) 
-            VALUES( (\"$userInfo->address\",
-                $userInfo->fio,
-                $userInfo->username,
-                $userInfo->password,
-                $userInfo->isAdmin,
-                $userInfo->email\")";
+    public function doesUsernameExist($username){
+        $result;
+        $usernameQuery="SELECT * FROM users WHERE username=$username";
         $this->connectDb();
-        mysql_query($userQuery);
-        $uid=mysql_insert_id();
+        $queryResult=mysql_query($usernameQuery);
+        //if (mysql_num_rows($queryResult)>0)
+        $result=(mysql_num_rows($queryResult)>0);
         $this->disconnectDb();
-        return $uid;
+        return $result;
+    }
+    
+    public function addUser(UserInfo $userInfo){
+        if (!$this->doesUsernameExist($userInfo->username)){
+            $userQuery="INSERT INTO users
+                (address, fio, username, password, isAdmin, email) 
+                VALUES(\"$userInfo->address\",
+                    \"$userInfo->fio\",
+                    \"$userInfo->username\",
+                    \"$userInfo->password\",
+                    $userInfo->isAdmin,
+                    \"$userInfo->email\")";
+            $this->connectDb();
+            mysql_query($userQuery);
+            $uid=mysql_insert_id();
+            $this->disconnectDb();
+            return $uid;
+        }
+        else
+            return null;
     }
     
     public function checkLogin($login, $password ){
@@ -46,7 +61,7 @@ class UserManager {
         $getUserInfoQuery=  "SELECT id, address, fio, isAdmin, email 
                             FROM users 
                             WHERE username=\"$login\" AND password=\"$password\"";
-       
+
         $this->connectDb();
         $queryResults=mysql_query($getUserInfoQuery);
         $row=mysql_fetch_row($queryResults);

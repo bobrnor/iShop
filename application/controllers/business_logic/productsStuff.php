@@ -215,6 +215,68 @@ class ProductsStuff {
         
         $this->disconnectDb();
     }
+    
+    public function addRelatedProducts($relatedProducts) {
+        
+        $this->connectDb();
+        
+        foreach ($relatedProducts as $product) {
+            foreach ($relatedProducts as $relatedProduct) {
+                $query = "INSERT INTO IGNORE related_products 
+                    (pid, rpid)
+                    VALUES
+                    ($product->id, $relatedProduct->id)";
+                mysql_query($query);
+            }
+        }
+        
+        $this->disconnectDb();
+    }
+    
+    public function getRelatedProducts($product) {
+        
+        $this->connectDb();
+        
+        $query = "SELECT p.id as pid, p.name, p.description, p.image_url, 
+            p.price, c.id as cid, c.name as cat_name, s.id as sid, s.value as size
+            FROM products p, categories c, sizes s, products_sizes ps, related_products rp 
+            WHERE p.id = rp.rpid AND rp.id = $product->id AND p.id = ps.pid AND s.id = ps.sid AND p.category = c.id";
+        $result = mysql_query($query);
+        
+        $products = array();
+        
+        while ($row = mysql_fetch_array($result)) {
+            if (array_key_exists($row["pid"], $products)) {
+                $product = $products[$row["pid"]];
+            }
+            else {
+                $product = new ProductInfo();
+                $products[$row["pid"]] = $product;
+                
+                $product->id = $row["pid"];
+                $product->name = $row["name"];
+                $product->description = $row["description"];
+                $product->setImageUrl($row["image_url"]);
+                $product->price = $row["price"];
+
+                $category = new ProductCategory();
+                $category->id = $row["cid"];
+                $category->name = $row["cat_name"];
+
+                $product->category = $category;
+            }
+            
+            $size = new ProductSize();
+            $size->id = $row["sid"];
+            $size->value = $row["size"];
+            
+            $product->sizes[$size->id] = $size;
+        }
+        
+        $this->disconnectDb();
+        
+        return products;
+    }
 }
 
 ?>
