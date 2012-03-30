@@ -34,7 +34,8 @@ class Items extends CI_Controller {
     public function itemsByCat($catId)
     {
         session_start();
-        $this->load->view('main_top'); 
+       $data['activeLink']=2;
+            $this->load->view('main_top', $data); 
         
         $productsStuff = new ProductsStuff();
         $stuff = $productsStuff->getProducts(NULL, $catId, 0, 100);

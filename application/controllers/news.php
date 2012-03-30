@@ -6,6 +6,7 @@ include_once "business_logic/newsStuff.php";
 class News extends CI_Controller {
     public function index()
     {
+         session_start();
          $newsStuff = new NewsStuff();
          $stuff = $newsStuff->getNews(NULL, 0, 100);
          $data['newsStuff']=$stuff;

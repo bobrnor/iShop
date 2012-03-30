@@ -3,7 +3,7 @@
     <form method="post" action="/index.php/news/">
         <input type="hidden" name="newsId" value="<?=$new->id?>" />
         <input type="image" name="del" class="buttons" src="/images/admin_delete.png" />
-        <!--<img class="buttons" id="<?=$new->id?>" src="/images/admin_edit.png" align="right"/>-->
+       <!-- <input type="image" name="btnEdit" class="buttons" src="/images/admin_edit.png" align="right"/> -->
         <?php
             if (isset($_POST['del_x'])){
                 unset($_POST['del_x']);
@@ -12,6 +12,10 @@
                 $newsStuff->removeNews($id);
                 header("Location: {$_SERVER['HTTP_REFERER']}");
             }
+          /*  if (isset($_POST['btnEdit_x'])){
+                 unset($_POST['btnEdit_x']);
+                 $id = intval($_POST['newsId']);
+            }*/
         ?>
     </form>
     <!-- end_admin -->

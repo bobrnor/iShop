@@ -38,22 +38,24 @@ class UserManager {
     
     public function addUser(UserInfo $userInfo){
         if (!$this->doesUsernameExist($userInfo->username)){
-            $userQuery="INSERT INTO users
-                (address, fio, username, password, isAdmin, email) 
-                VALUES(\"$userInfo->address\", 
-                    \"$userInfo->fio\", 
-                    \"$userInfo->username\", 
-                    \"$userInfo->password\", 
-                    $userInfo->isAdmin, 
+            $userQuery="INSERT INTO users 
+                (address, fio, username, password, isAdmin, email)  
+                VALUES (\"$userInfo->address\",
+                    \"$userInfo->fio\",
+                    \"$userInfo->username\",
+                    \"$userInfo->password\",
+                    $userInfo->isAdmin,
                     \"$userInfo->email\")";
+            echo $userQuery;
             $this->connectDb();
             mysql_query($userQuery);
             $uid=mysql_insert_id();
             $this->disconnectDb();
+            
             return $uid;
         }
         else
-            return null;
+            return -1;
     }
     
     public function checkLogin($login, $password ){
@@ -61,6 +63,7 @@ class UserManager {
         $getUserInfoQuery=  "SELECT id, address, fio, isAdmin, email 
                             FROM users 
                             WHERE username=\"$login\" AND password=\"$password\"";
+
         $this->connectDb();
         $queryResults=mysql_query($getUserInfoQuery);
         $row=mysql_fetch_row($queryResults);

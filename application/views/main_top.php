@@ -28,7 +28,16 @@
             <td class="nav-link" width="150px" <?php if ($activeLink == 1) echo "id='ac_link'"; ?> ><a href="/index.php/news/">Новости</a></td>
             <td class="nav-link" width="150px" <?php if ($activeLink==2) echo "id='ac_link'"; ?> ><a href="/index.php/items/">Каталог</a></td>
             <td class="nav-link" width="126px" <?php if ($activeLink==3) echo "id='ac_link'"; ?> ><a href="#">О нас</a></td>
-            <td class="nav-link" width="154px" <?php if ($activeLink==4) echo "id='ac_link'"; ?> ><a href="#">Контакты</a></td>
+            <td class="nav-link" width="154px" <?php if ($activeLink==4) echo "id='ac_link'"; ?> >
+                <?php 
+                    if ((isset($_SESSION['hasLogined'])==false)||($_SESSION['hasLogined']==0))
+                        echo "<a href='/index.php/users/login/'>Вход</a></td>";
+                    else
+                        echo "<a href='/index.php/users/unlogin/'>Выход</a></td>";
+                            
+                ?>
+                
+                
             <?php if ($activeLink==5)
                 echo "<td id='basket' width='115px' style='background-image: url(/images/basket_active.png);'>
                     <a href='/index.php/basket/'><img id='bas_pic' src= '/images/basket_hover.png' /> </a></td>";

@@ -66,13 +66,13 @@
         height:32px;
 	font: 30px/32px Verdana;
 	margin-top: -30px;
-	background-image:url(/images/small_basket.png);
+/*	background-image:url(/images/small_basket.png);
 	background-repeat:no-repeat;
-	background-position:right;
+	background-position:right;*/
 	
 }
 
-#price-in-catalog img{
+/*#price-in-catalog img{
 	opacity: 0.0;
 	position:relative;
 	top: 5px;
@@ -82,5 +82,17 @@
 #price-in-catalog img:hover{
 	opacity: 1.0;
 	transition: opacity 5s ease-in-out 2s;
+}*/
+
+/*#price-in-catalog input{
+	opacity: 0.0;
+	position:relative;
+	top: 5px;
 }
+
+
+#price-in-catalog input:hover{
+	opacity: 1.0;
+	transition: opacity 5s ease-in-out 2s;
+}*/
 

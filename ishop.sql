@@ -184,10 +184,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `address` varchar(256) CHARACTER SET utf8 NOT NULL,
   `fio` varchar(256) CHARACTER SET utf8 NOT NULL,
-  `username` varchar(128) NOT NULL,
-  `password` varchar(64) NOT NULL,
+  `username` varchar(128) CHARACTER SET utf8 NOT NULL,
+  `password` varchar(64) CHARACTER SET utf8 NOT NULL,
   `isAdmin` tinyint(1) NOT NULL,
-  `email` varchar(256) NOT NULL,
+  `email` varchar(256) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
