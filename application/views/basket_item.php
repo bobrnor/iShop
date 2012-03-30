@@ -18,10 +18,7 @@
                  $orderInfo = $_SESSION['basketStuff']->getOrderInfo();
                  $orderProducts = $orderInfo->orderedProductsInfo;
                  $product = $orderProducts[$key]; 
-               //  print_r($product);
-                 
-               // die((string)$key);
-                //die((string)$_POST['pr']." sgd");
+               
                 $_SESSION['basketStuff']->removeProduct($product);
                 header("Location: {$_SERVER['HTTP_REFERER']}");
             }

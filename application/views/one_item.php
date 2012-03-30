@@ -59,7 +59,6 @@
                         <?php else:
                            if (isset($_SESSION['basketStuff'])==false){
                                 $_SESSION['basketStuff'] = new basketStuff();
-                                die('dsd');
                             }
                             $_SESSION['basketStuff']->addProduct($stuff[$_POST['stuff_id']], $_POST['cursize']);
                             echo "<p>Товар добавлен в корзину</p>";                            

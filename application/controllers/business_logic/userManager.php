@@ -45,7 +45,8 @@ class UserManager {
         $result=new UserInfo();
         $getUserInfoQuery=  "SELECT id, address, fio, isAdmin, email 
                             FROM users 
-                            WHERE login=\"$login\" AND password=\"$password\"";
+                            WHERE username=\"$login\" AND password=\"$password\"";
+       
         $this->connectDb();
         $queryResults=mysql_query($getUserInfoQuery);
         $row=mysql_fetch_row($queryResults);
