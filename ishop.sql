@@ -180,7 +180,16 @@ VALUES
 /*!40000 ALTER TABLE `sizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `address` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `fio` varchar(256) CHARACTER SET utf8 NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `isAdmin` tinyint(1) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
