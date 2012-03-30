@@ -2,6 +2,8 @@
 
 include_once "business_logic/productsStuff.php";
 include_once "business_logic/newsStuff.php";
+include_once "business_logic/basketStuff.php";
+include_once "business_logic/userManager.php";
 
 class News extends CI_Controller {
     public function index()

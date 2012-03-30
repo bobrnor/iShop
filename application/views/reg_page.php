@@ -25,8 +25,7 @@
                         $userInfo->username =$_POST['login'];
                         $userManager = new UserManager();
                         $uid = $userManager->addUser($userInfo);
-                       // die((string)$uid);
-                        if ($uid == -1): ?>
+                       if ($uid == -1): ?>
                             <script type="text/javascript">alert("Пользователь с таким именем уже существует!");</script>
                    <?php else:
                          $userInfo->uid = $uid;
@@ -37,7 +36,7 @@
                          $_SESSION['basketStuff']->setUserInfo($userInfo);  ?>
                           <script type="text/javascript">alert("Регистрация прошла успешно!");</script>
                  <?php
-                        // header("Location: /index.php/");
+                         header("Location: /index.php/");
                          endif;
                     endif;
                 }

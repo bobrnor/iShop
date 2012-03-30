@@ -46,7 +46,6 @@ class UserManager {
                     \"$userInfo->password\",
                     $userInfo->isAdmin,
                     \"$userInfo->email\")";
-            echo $userQuery;
             $this->connectDb();
             mysql_query($userQuery);
             $uid=mysql_insert_id();
