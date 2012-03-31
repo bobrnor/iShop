@@ -1,3 +1,5 @@
+<link rel='stylesheet' href='/style/item-scrollable-horizontal.css' type='text/css' media='screen, projection' /> 
+<link rel='stylesheet' href='/style/item-scrollable-buttons.css' type='text/css' media='screen, projection' /> 
 
 <tr>
     <td colspan="4" id="related">
@@ -11,23 +13,25 @@
     
             <!-- root element for the items -->
             <div class="items">
-       
-            <!-- 1-4 -->
-            <div>
-                <a href="#"><img src="/images/items/bravo-07.png"/></a>
-                <img src="/images/items/Dynamite-03.png" />
-                <img src="/images/items/stomp-101.png" width="216" height="270"/>
-           <!--  <img src="images/items/big/Bravo-07.png" width="216" height="270"/>-->
-            </div>
-             <div>
-                 <img src="/images/items/bravo-07.png" width="216" height="270" />
-                 <img src="/images/items/Dynamite-03.png" width="216" height="270"/>
-                 <img src="/images/items/stomp-101.png" width="216" height="270"/>
-                 <!--  <img src="images/items/big/Bravo-07.png" width="216" height="270"/>-->
-             </div>
-        </div> <!-- items -->
-   
-	</div> <!-- #scrollable-->
+                 <?php
+                    $n = count($relItems);
+                    $i=1;
+                    while ($i<=$n){
+                        echo "<div>";
+                        $j=0;
+                        while(($j<3)and($i<=$n)){
+                            echo "<a href='/index.php/items/item/".((string)$i)."'>
+                                 <img src='".($relItems[$i]->getPreviewImageUrl())."' /></a>";
+                            $j++;
+                            $i++;
+                        }
+                    echo "</div>";
+                    }
+                ?>
+           
+            </div> <!-- items -->
+
+            </div> <!-- #scrollable-->
     
      <!-- "next page" action -->
 	<a class="next browse right"></a>

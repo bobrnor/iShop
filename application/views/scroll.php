@@ -1,3 +1,7 @@
+ <link rel="stylesheet" href="/style/scrollable-horizontal.css" media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="/style/scrollable-buttons.css" media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="/style/scrollable-navigator.css" media="screen, projection"/>
+
 <div id="w_content">
 
 <!-- "previous page" action -->
@@ -20,6 +24,8 @@
             {
                echo "<a href='".base_url()."index.php/items/item/".((string)$i)."'>
                     <img src='".($stuff[$i]->getPreviewImageUrl())."' /></a>";
+               /* echo "<a href='/index.php/items/item/".((string)$stuff[$i]->id)."'>
+                    <img src='".($stuff[$i]->getPreviewImageUrl())."' /></a>";*/
                 $j++;
                 $i++;
             }

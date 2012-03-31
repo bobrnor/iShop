@@ -37,6 +37,12 @@
 	border: 3px solid #ffd400;
 }
 
+.scrollable a:hover,a:visited {
+    text-decoration: none;
+    border: 3px solid #ffd400;
+    
+}
+
 /* single scrollable item */
 .scrollable img {
 	float:left;

@@ -49,11 +49,11 @@
                             $userInfo->email = $_POST['email'];
                             
                             $orderInfo->userInfo = $userInfo;
-                            if (!($userInfo->email == '')){
-                               
-                                $mSender = new MailSender();
-                                $mSender->sendMail($orderInfo);
-                            }
+//                            if (!($userInfo->email == '')){
+//                               
+//                                $mSender = new MailSender();
+//                                $mSender->sendMail($orderInfo);
+//                            }
                         endif;
                         
                     }

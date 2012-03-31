@@ -2,7 +2,7 @@
 	width: 960px;
 	margin: 0 auto 0; 
 	padding-top: 45px;
-	height: 500px;
+	height: auto;
 }
 
 .arrow{
@@ -81,9 +81,25 @@
 	margin-bottom: 10px;
 }
 
+#related h1{
+	color:#FFF;
+	font: 24px/38px Verdana;
+	padding-bottom: 21px;
+}
+
+#rel_tovar_line{
+	height: 1px;
+	width: 500px;
+	background-color: #999999;
+	display:block;
+	position:relative;
+	margin-bottom: 15px;
+	/*top: 110px;*/
+}
+
 #footer {
 	width: 100%;
-	margin: 0px auto 0;
+	margin: -67px auto 0;
 	height: 67px;
 	background: #4d4d4d;
 	position: relative;
