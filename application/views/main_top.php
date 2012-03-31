@@ -11,10 +11,10 @@
             $this->load->helper('url');
             echo "<link rel='stylesheet' href='".base_url()."style/style.css' type='text/css' media='screen, projection' />";
             /*echo "<link rel='stylesheet' href='".base_url()."style/tovar_style.css' type='text/css' media='screen, projection' />";
-           */ echo "<link rel='stylesheet' href='".base_url()."style/scrollable-horizontal.css' type='text/css' media='screen, projection' />";
+            echo "<link rel='stylesheet' href='".base_url()."style/scrollable-horizontal.css' type='text/css' media='screen, projection' />";
             echo "<link rel='stylesheet' href='".base_url()."style/scrollable-buttons.css' type='text/css' media='screen, projection' />";
             echo "<link rel='stylesheet' href='".base_url()."style/scrollable-navigator.css' type='text/css' media='screen, projection' />";
-            echo "<script src='".base_url()."js/jquery.tools.min.js'></script>"; 
+           */ echo "<script src='".base_url()."js/jquery.tools.min.js'></script>"; 
         ?>
     
 </head>

@@ -1,6 +1,6 @@
 <?php
 
-include "../../../system/helpers/email_helper.php";
+include "/system/helpers/email_helper.php";
 
 include_once "orderInfo.php";
 

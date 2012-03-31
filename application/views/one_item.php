@@ -79,6 +79,18 @@
                 }
             ?>
         
-        </td>    
-    </tr></table>
+        </td>            
+    </tr>
+        <?php
+        $product = $stuff[$id];
+        $productStuff = new ProductsStuff();
+        $relItems = $productStuff->getRelatedProducts($product);
+        //print_r($relItems);
+        
+        if (count($relItems) > 0){
+            $data['relItems'] = $relItems; 
+            $this->load->view('related_items', $data); 
+        }?>
+    
+    </table>
 </div><!-- #content-->
