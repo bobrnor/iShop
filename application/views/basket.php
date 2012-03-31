@@ -15,7 +15,7 @@
                 $total += $product->price;
             }
            echo "<div id='makeOrder'>";
-           echo "<a href='#'><img src='/images/basket_make_order.png' align='left'/></a>";
+           echo "<a href='/index.php/basket/makeorder/'><img src='/images/basket_make_order.png' align='left'/></a>";
            echo "<p id='totally'>".(string)$total." P.</p></div>";
         }
     }

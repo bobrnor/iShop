@@ -1,0 +1,85 @@
+#content{
+	width: 960px;
+	margin: 0 auto 0; 
+	padding-top: 55px;
+}
+
+h1{
+	color:#FFF;
+	font: 25px Verdana;
+	font-weight:500;
+	padding-bottom: 25px;
+}
+
+#basketInfo{
+	width: 275px;
+	color:#999999;
+	font: 14px/14px Verdana;
+	vertical-align:top;
+}
+
+.bas_item{
+	display:block;
+	float:left;
+}
+
+#bas_items{
+	border-bottom:1px solid #999999;
+	margin-bottom: 20px;
+}
+
+#bas_price{
+	color:#ffd400;
+	font: 25px Verdana;
+}
+
+#usrInfo{
+	width:610px;
+	padding-left: 75px;
+}
+
+.labels{
+	display:block;
+	float:left;
+	width: 75px;
+	color:#999999;
+	font: 14px/25px Verdana;	
+	text-align:right;
+	padding-right: 15px;
+}
+
+#regForm{
+	width: 600px;
+	margin: 0 auto 0; 
+}
+
+.regTxtBox{
+	width: 400px;
+	border:0;
+	outline: none;
+	font: 12px/25px Verdana;
+	float:left;
+	margin-bottom: 30px;
+	border-radius:4px;
+	margin-right: 50px;	
+}
+
+#comment{
+	font: 11px Verdana;
+	color:#ffd400;
+}
+
+.req-labels{
+	display:block;
+	float:left;
+	width: 75px;
+	color:#ffd400;
+	font: 13px/25px Verdana;	
+	text-align:right;
+	padding-right: 15px;
+}
+
+#btnReg{
+	margin: 5px 0 15px 25px;
+	padding-bottom: 15px;
+}
