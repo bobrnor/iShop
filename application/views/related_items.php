@@ -15,19 +15,21 @@
             <div class="items">
                  <?php
                     $n = count($relItems);
-                    $i=1;
-                    while ($i<=$n){
-                        echo "<div>";
-                        $j=0;
-                        while(($j<3)and($i<=$n)){
-                            echo "<a href='/index.php/items/item/".((string)$i)."'>
-                                 <img src='".($relItems[$i]->getPreviewImageUrl())."' /></a>";
-                            $j++;
-                            $i++;
+                    $j=0;
+                    foreach($relItems as $item){
+                        if ($j==0)
+                            echo "<div>";
+                        echo "<a href='/index.php/items/item/".((string)$item->id)."'>
+                                 <img src='".($item->getImageUrl())."' /></a>";
+                        $j++;
+                        if ($j==3){
+                            echo "</div>";
+                            $j=0;
                         }
-                    echo "</div>";
                     }
-                ?>
+                    
+                   
+                 ?>
            
             </div> <!-- items -->
 

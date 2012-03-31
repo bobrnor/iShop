@@ -245,6 +245,7 @@ class ProductsStuff {
             p.price, c.id as cid, c.name as cat_name, s.id as sid, s.value as size
             FROM products p, categories c, sizes s, products_sizes ps, related_products rp 
             WHERE p.id = rp.rpid AND rp.pid = $product->id AND p.id = ps.pid AND s.id = ps.sid AND p.category = c.id";
+        
         $result = mysql_query($query);
         
         $products = array();
@@ -279,7 +280,7 @@ class ProductsStuff {
         
         $this->disconnectDb();
         
-        return products;
+        return $products;
     }
 }
 
