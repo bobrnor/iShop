@@ -35,14 +35,27 @@
                 <?php
                     if (isset($_POST['btnAgree_x'])){
                         unset($_POST['btnAgree_x']);
+                        
                         if (($_POST['FIO']=="")||($_POST['adress']=="")):?>
                             <script type="text/javascript">alert("Некоторые обязательные поля остались незаполнеными!");</script>
                         <?php else:
-                            if (!($_POST['email']=="")){
+                             $productStuff = new ProductsStuff();
+                             $productStuff->addRelatedProducts($stuff);
+                             if ($userInfo == NULL){
+                                $userInfo = new UserInfo();
+                            }
+                            $userInfo->fio = $_POST['FIO'];
+                            $userInfo->address = $_POST['adress'];
+                            $userInfo->email = $_POST['email'];
+                            
+                            $orderInfo->userInfo = $userInfo;
+                            if (!($userInfo->email == '')){
+                               
                                 $mSender = new MailSender();
                                 $mSender->sendMail($orderInfo);
                             }
                         endif;
+                        
                     }
                 ?>
             </form>

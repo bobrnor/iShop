@@ -79,6 +79,8 @@
                 }
             ?>
         
-        </td>    
-    </tr></table>
+        </td>            
+    </tr>
+        <?php $this->load->view('related_items'); ?>
+    </table>
 </div><!-- #content-->

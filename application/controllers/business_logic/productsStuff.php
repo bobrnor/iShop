@@ -219,7 +219,7 @@ class ProductsStuff {
     public function addRelatedProducts($relatedProducts) {
         
         $this->connectDb();
-        
+      
         foreach ($relatedProducts as $product) {
             foreach ($relatedProducts as $relatedProduct) {
                 $query = "INSERT INTO IGNORE related_products 
@@ -227,6 +227,7 @@ class ProductsStuff {
                     VALUES
                     ($product->id, $relatedProduct->id)";
                 mysql_query($query);
+                  die($query);
             }
         }
         
