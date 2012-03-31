@@ -79,9 +79,12 @@ class ProductsStuff {
         
         $this->disconnectDb();
         
-//        print_r($products);
+        $reallyProducts = array();
+        foreach ($products as $product) {
+            $reallyProducts[] = $product;
+        }
         
-        return $products;
+        return $reallyProducts;
     }
     
     public function getProducts1($from, $to) {
@@ -276,8 +279,13 @@ class ProductsStuff {
         }
         
         $this->disconnectDb();
+
+        $reallyProducts = array();
+        foreach ($products as $product) {
+            $reallyProducts[] = $product;
+        }
         
-        return products;
+        return $reallyProducts;
     }
 }
 
