@@ -126,7 +126,7 @@ class ProductsStuff {
         $this->connectDb();        
         
         $category = $productInfo->category;
-        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES (\"$category->name\")";
+        $categoryQuery = "INSERT IGNORE INTO categories (name) VALUES (\"$category->name\")";
         mysql_query($categoryQuery);
         
         $categoryQuery = "SELECT id FROM categories WHERE name = \"$category->name\"";
@@ -179,7 +179,7 @@ class ProductsStuff {
         $this->connectDb();        
         
         $category = $productInfo->category;
-        $categoryQuery = "INSERT INTO IGNORE categories (name) VALUES (\"$category->name\")";
+        $categoryQuery = "INSERT IGNORE INTO categories (name) VALUES (\"$category->name\")";
         mysql_query($categoryQuery);
         
         $categoryQuery = "SELECT id FROM categories WHERE name = \"$category->name\"";
@@ -222,12 +222,15 @@ class ProductsStuff {
       
         foreach ($relatedProducts as $product) {
             foreach ($relatedProducts as $relatedProduct) {
-                $query = "INSERT INTO IGNORE related_products 
-                    (pid, rpid)
-                    VALUES
+                if ($product->id != $relatedProduct->id) {
+                    $query = "INSERT IGNORE INTO related_products 
+                    (pid, rpid) 
+                    VALUES 
                     ($product->id, $relatedProduct->id)";
-                mysql_query($query);
-                  die($query);
+
+                    mysql_query($query);
+                }
+
             }
         }
         
