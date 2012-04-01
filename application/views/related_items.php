@@ -13,23 +13,32 @@
     
             <!-- root element for the items -->
             <div class="items">
+                <form name="rel_items" method="post">
+                    <input type="hidden" name="flag" value="1"/>
                  <?php
                     $n = count($relItems);
-                    $j=0;
-                    foreach($relItems as $item){
-                        if ($j==0)
-                            echo "<div>";
-                        echo "<a href='/index.php/items/item/".((string)$item->id)."'>
-                                 <img src='".($item->getImageUrl())."' /></a>";
-                        $j++;
-                        if ($j==3){
-                            echo "</div>";
-                            $j=0;
+                    $i=0;
+                    while ($i<$n)
+                    {
+                        echo "<div>";
+                        $j=0;
+                        while(($j<3)and($i<$n))
+                        {
+                            echo "<input type='image' name='im' src='".($relItems[$i]->getImageUrl())."' width='216' height='270' />";
+                           
+                            if (isset($_POST['im_x'])){
+                               $_SESSION['currentStuff']=$relItems;
+                               header("Location: /index.php/items/item/".((string)$relItems[$i]->id));
+                            }
+                            
+                            $j++;
+                            $i++;
                         }
+
+                         echo "</div>";
                     }
-                    
-                   
                  ?>
+                </form>
            
             </div> <!-- items -->
 

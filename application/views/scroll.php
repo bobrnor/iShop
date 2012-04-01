@@ -14,33 +14,22 @@
 <div class="items">
     
     <?php
-        $n = count($stuff);
-//        $j=0;
-//        foreach($stuff as $item){
-//            if ($j==0)
-//                echo "<div>";
-//            echo "<a href='/index.php/items/item/".((string)$item->id)."'><img src='".($item->getPreviewImageUrl())."' /></a>";
-//            $j++;
-//            if ($j==4){
-//                echo "</div>";
-//                $j=0;
-//            }
-//        }
-        $i=1;
-        while ($i<=$n)
+        $n = count($stuff); 
+        $i=0;
+        while ($i<$n)
         {
             echo "<div>";
             $j=0;
-            while(($j<4)and($i<=$n))
+            while(($j<4)&&($i<$n))
             {
-               echo "<a href='".base_url()."index.php/items/item/".((string)$i)."'>
+               echo "<a href='/index.php/items/item/".((string)$stuff[$i]->id)."'>
                     <img src='".($stuff[$i]->getPreviewImageUrl())."' /></a>";
               
                 $j++;
                 $i++;
             }
          
-             echo "</div>";
+              echo "</div>";
         }
     ?>
           
