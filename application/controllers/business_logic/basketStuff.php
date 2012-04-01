@@ -33,6 +33,7 @@ class basketStuff {
         foreach ($this->orderedProducts as $key => $orderedProduct) {
             if ($orderedProduct == $orderedProductInfo) {
                 unset($this->orderedProducts[$key]);
+                break;
             }
         }
     }
