@@ -24,7 +24,10 @@
                         $j=0;
                         while(($j<3)and($i<$n))
                         {
-                            echo "<input type='image' name='im' src='".($relItems[$i]->getImageUrl())."' width='216' height='270' />";
+                            if (@fopen($relItems[$i]->getImageUrl(),'r'))
+                                echo "<input type='image' name='im' src='".($relItems[$i]->getImageUrl())."' width='216' height='270' />";
+                            else
+                                echo "<input type='image' name='im' src='/images/no_image_small.png' width='216' height='270' />";
                            
                             if (isset($_POST['im_x'])){
                                $_SESSION['currentStuff']=$relItems;

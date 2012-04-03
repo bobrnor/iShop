@@ -51,9 +51,10 @@
         </td>
         <td id="shoes">
             <?php if (@fopen($product->getImageUrl(),'r'))
-                    echo "<img src='".$product->getImageUrl()."' />"; ?>
+                    echo "<img src='".$product->getImageUrl()."' />";
+                else echo "<img src='/images/no_image.png' />";?>
             
-            <img src= <?php echo $product->getImageUrl(); ?> /> </td>
+             </td>
         <td id="shoe-info">
         	<h1> <?php echo $product->name; ?></h1>
             <p> <?php echo $product->description; ?> </p>
