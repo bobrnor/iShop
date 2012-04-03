@@ -38,12 +38,7 @@
                         
                              $productStuff = new ProductsStuff();
                              $productStuff->addRelatedProducts($stuff);
-                                                
-                           /* if (!($userInfo->email == '')){
-                               
-                                $mSender = new MailSender();
-                                $mSender->sendMail($orderInfo);
-                            }*/
+                            
                     }
                 ?>
             </form>

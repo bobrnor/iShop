@@ -1,7 +1,14 @@
 <div class="itemInfo">
     <form name="orderItem" method="post">
         <input type="hidden" name="pr" value="<?=$key?>" />
-        <img src="<?=$product->getImageUrl()?>" class="orderImg" />
+        <?php 
+            if (@fopen($product->getImageUrl(),'r'))
+                    echo "<img src='".$product->getImageUrl()."' class='orderImg' />";
+            else
+                echo "<img src='/images/no_image_small.png' class='orderImg' />";
+        ?>
+            
+                
         <!--<a href="javascript:void(0);"><img onCLick="orderItem.submit();" src="/images/basket_remove.png" class="btnRmv"  align="right"/></a>
         -->
         <input type="image" name="btnDel" src="/images/basket_remove.png" class="btnRmv"  align="right" />
