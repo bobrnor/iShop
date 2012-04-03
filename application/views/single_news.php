@@ -2,8 +2,15 @@
     <!-- admin -->
     <form method="post" action="/index.php/news/">
         <input type="hidden" name="newsId" value="<?=$new->id?>" />
-        <input type="image" name="del" class="buttons" src="/images/admin_delete.png" />
-       <!-- <input type="image" name="btnEdit" class="buttons" src="/images/admin_edit.png" align="right"/> -->
+        <?php 
+        if (isset($_SESSION['basketStuff'])) {
+           $userInfo = $_SESSION['basketStuff']->getUserInfo();
+           if (!($userInfo == NULL) && ($userInfo->isAdmin==1))
+                   echo "<input type='image' name='del' class='buttons' src='/images/admin_delete.png' />";
+            
+        } ?>
+            
+        <!-- <input type="image" name="btnEdit" class="buttons" src="/images/admin_edit.png" align="right"/> -->
         <?php
             if (isset($_POST['del_x'])){
                 unset($_POST['del_x']);
