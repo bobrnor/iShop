@@ -3,6 +3,7 @@
 <?php 
     if ($payOk == 1){
         $userInfo = $_SESSION['basketStuff']->getUserInfo();
+        $orderInfo = $_SESSION['basketStuff']->getOrderInfo();
         if (!($userInfo->email == '')){
             $mSender = new MailSender();
             $mSender->sendMail($orderInfo);
