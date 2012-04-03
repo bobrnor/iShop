@@ -49,7 +49,11 @@
                 
             ?>
         </td>
-        <td id="shoes"><img src= <?php echo $product->getImageUrl(); ?> /> </td>
+        <td id="shoes">
+            <?php if (@fopen($product->getImageUrl(),'r'))
+                    echo "<img src='".$product->getImageUrl()."' />"; ?>
+            
+            <img src= <?php echo $product->getImageUrl(); ?> /> </td>
         <td id="shoe-info">
         	<h1> <?php echo $product->name; ?></h1>
             <p> <?php echo $product->description; ?> </p>

@@ -3,7 +3,7 @@
 
 <footer id="footer">
 	<div id="foot_info">&copy; 2012. NoNameShoes<br>
-    mail@nonameshoes.ru</div>
+    nonameshoes@mail.ru</div>
 </footer><!-- #footer -->
 
 	<script>

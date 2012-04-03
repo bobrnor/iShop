@@ -9,7 +9,10 @@
 <!--                <form method="post">-->
                     <?php
                         echo "<a href='/index.php/items/item/".(string)$good->id."'>";
-                        echo "<img src='".$good->getImageUrl()."' width='216' height='270' />";
+                        if (@fopen($good->getImageUrl(),'r'))
+                            echo "<img src='".$good->getImageUrl()."' width='216' height='270' />";
+                        else
+                            echo "<img src='/images/no_image_small.png' width='216' height='270' />";
                         echo "<p>".$good->name."</p></a>";
 
                     ?>

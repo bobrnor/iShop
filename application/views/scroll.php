@@ -22,8 +22,14 @@
             $j=0;
             while(($j<4)&&($i<$n))
             {
-               echo "<a href='/index.php/items/item/".((string)$stuff[$i]->id)."'>
-                    <img src='".($stuff[$i]->getPreviewImageUrl())."' /></a>";
+                //die((string)file_exists ($stuff[$i]->getPreviewImageUrl()));
+                //if (file_exists ($stuff[$i]->getPreviewImageUrl()))
+                if (@fopen($stuff[$i]->getPreviewImageUrl(),'r'))
+                    echo "<a href='/index.php/items/item/".((string)$stuff[$i]->id)."'>
+                        <img src='".($stuff[$i]->getPreviewImageUrl())."' /></a>";
+                else 
+                    echo "<a href='/index.php/items/item/".((string)$stuff[$i]->id)."'>
+                        <img src='/images/no_image_prev.png' /></a>";
               
                 $j++;
                 $i++;
