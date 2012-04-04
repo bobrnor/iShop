@@ -17,7 +17,9 @@
                 $id = intval($_POST['newsId']);
                 $newsStuff = new NewsStuff();
                 $newsStuff->removeNews($id);
-                header("Location: {$_SERVER['HTTP_REFERER']}");
+                $stuff = $newsStuff->getNews(NULL, 0, 100);
+                /*$data['newsStuff']=$stuff;*/
+                header("Location: /index.php/news/");
             }
           /*  if (isset($_POST['btnEdit_x'])){
                  unset($_POST['btnEdit_x']);

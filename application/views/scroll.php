@@ -13,6 +13,7 @@
 <!-- root element for the items -->
 <div class="items">
     
+    
     <?php
         $n = count($stuff); 
         $i=0;

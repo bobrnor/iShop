@@ -4,26 +4,54 @@
     <div id="content">
         <?php 
         $stuff=$_SESSION['currentStuff'];
+        $isAdmin=false;
+        if (isset($_SESSION['basketStuff'])) {
+            $userInfo = $_SESSION['basketStuff']->getUserInfo();
+            if (!($userInfo == NULL) && ($userInfo->isAdmin==1))
+                    $isAdmin=true;
+        }
+        
         foreach ($stuff as $good): ?>
             <div class="catalogItem">
-<!--                <form method="post">-->
-                    <?php
-                        echo "<a href='/index.php/items/item/".(string)$good->id."'>";
-                        if (@fopen($good->getImageUrl(),'r'))
-                            echo "<img src='".$good->getImageUrl()."' width='216' height='270' />";
-                        else
-                            echo "<img src='/images/no_image_small.png' width='216' height='270' />";
-                        echo "<p>".$good->name."</p></a>";
+                <form method="post">
+                <?php 
+                    if ($isAdmin){ 
+                        echo "<input type='hidden' name='itemId' value='<?=$good->id?>' />";
+                        echo "<input name='btnDel$good->id' class='delItem' type='image' src='/images/admin_delete.png' />";   
+                    }
+                    echo "<a href='/index.php/items/item/".(string)$good->id."'>";
+                    if (@fopen($good->getImageUrl(),'r'))
+                        echo "<img src='".$good->getImageUrl()."' width='216' height='270' />";
+                    else
+                        echo "<img src='/images/no_image_small.png' width='216' height='270' />";
+                    echo "<p>".$good->name."</p></a>";
+                    
+                    $s = 'btnDel'.$good->id.'_x';
+                    if (isset($_POST['btnDel'.$good->id.'_x'])){
+                        unset($_POST['btnDel'.$good->id.'_x']);
+                        $productStuff = new ProductsStuff();
+                        $productStuff->removeProduct($good);
+                        header("Location: /index.php/items/itemsByCat/$catId");
+                        
+                    }
 
-                    ?>
-                    <div id='price-in-catalog'>
-                       <!-- <a href='#'><img src='/images/small_basket_hover.png' align='right'/></a> -->
-<!--                        <input type="image" name="btnInBas" src="/images/small_basket_hover.png" align="right" />-->
-                        <p><?=$good->price?> P.</p>
-                    </div>
-<!--                </form>-->
+                ?>
+                <div id='price-in-catalog'>
+                <?php 
+                   /* if ($isAdmin)
+                        echo "<a href='/index.php/items/addedititem/$good->id'><img src='/images/admin_edit.png' align='right'/></a>";*/?>
+                    <p><?=$good->price?> P.</p>
+                </div>
+                </form>
             </div> <!-- .catalogItem -->
-        <? endforeach; ?>
+        <? endforeach; 
+        if ($isAdmin):?>
+            <a href="/index.php/items/addedititem/0/"><div class="catalogItem" id="newItem">
+            	<img src="/images/admin_add_pic.png" align="middle"/>	
+            </div> </a>
+        <? endif;?>
+            
+            
  
     </div><!-- #content-->
 </div><!-- #container-->

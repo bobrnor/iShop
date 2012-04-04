@@ -1,7 +1,7 @@
 #content{
 	width: 960px;
 	margin: 0 auto 0; 
-	padding-top: 45px;
+	padding-top: 40px;
 	height: auto;
 }
 
@@ -41,7 +41,7 @@
 }
 
 #active_size{
-	background-image:url(/images/grey_full_circle.png);
+	background-image:url(images/grey_full_circle.png);
 	color: #343434;
 	
 }
@@ -51,7 +51,7 @@
 	margin-right: 12px;
 	display:inline;
 	float:left;
-	background-image:url(/images/grey_circle.png);
+	background-image:url(images/grey_circle.png);
 	background-repeat:no-repeat;
 	color: #999999;
 	padding-top: 9px;
@@ -78,7 +78,15 @@
 }
 
 #to_bas{
-	margin-bottom: 10px;
+	margin-bottom: 0px;
+}
+
+.rel_img{
+	display: block;
+	float: left;
+	margin-right: 11px;
+	margin-left: 11px;
+	border-bottom: 1px solid #999999;
 }
 
 #related h1{
@@ -104,4 +112,49 @@
 	background: #4d4d4d;
 	position: relative;
 	min-width: 1280px;
+}
+
+#shoe-info input, textarea, select{
+	border:0;
+	outline: none;
+    border-radius:4px;
+	margin-bottom: 25px;
+	
+	/*font: 14px/22px Verdana;*/
+	padding-left: 4px;
+}
+
+#in_name{
+	margin-top: 5px;
+	font: 36px/38px Verdana;
+	/*margin-bottom: 21px;*/
+	width: 400px;
+}
+
+#in_TA{
+	font: 11pt/13pt Verdana;
+	/*margin-bottom: 21px;*/
+	width: 400px;
+	max-width:400px;
+	height: 90px;
+	max-height: 90px;
+}
+
+#in_cat{
+	font: 11pt/13pt Verdana;
+	/*margin-bottom: 21px;*/
+	width: 400px;
+}
+#in_siz{
+	font: 11pt/13pt Verdana;
+	/*margin-bottom: 21px;*/
+	width: 200px;
+	height: 100px;
+}
+
+#in_price{
+	font: 30pt Verdana;
+	/*margin-bottom: 21px;*/
+	width: 200px;
+	display:block;
 }

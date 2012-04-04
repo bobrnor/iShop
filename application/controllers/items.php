@@ -3,6 +3,7 @@
 include_once "business_logic/productsStuff.php";
 include_once "business_logic/newsStuff.php";
 include_once "business_logic/basketStuff.php";
+include_once "business_logic/userManager.php";
 
 class Items extends CI_Controller {
     public function index()
@@ -47,6 +48,26 @@ class Items extends CI_Controller {
         $this->load->view('main_footer'); 
         
     }
+    
+    public function addEditItem($prId){
+        session_start();
+        $data['activeLink']=2;
+        $this->load->view('main_top', $data); 
+        
+        $productsStuff = new ProductsStuff();
+        /*$stuff = $productsStuff->getProducts(NULL, $catId, 0, 100);
+        $data['stuff']=$stuff;
+        
+        $_SESSION['currentStuff']=$stuff;*/
+        
+        if ($prId>0)
+            $data['product']=$productsStuff->getProductById($prId);
+        else
+            $data['product']=NULL;
+        $this->load->view('editItem',$data); 
+        $this->load->view('main_footer'); 
+        
+    } 
 }
 
 ?>

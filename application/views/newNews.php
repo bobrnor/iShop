@@ -30,6 +30,7 @@
                             $newsStuff = $newsStuff->getNews(NULL, 0, 100);
                             $hide = true;
                        endif;
+                       header("Location: /index.php/news/");
                     }
                     if ($hide == true):?>
                             <script type="text/javascript">CloseFields(); alert("Запись успешно добавлена!")</script>

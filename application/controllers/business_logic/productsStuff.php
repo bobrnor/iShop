@@ -44,7 +44,8 @@ class ProductsStuff {
         
         $query .= " LIMIT $from, $to";
         
-        $this->connectDb();        
+        $this->connectDb();   
+        
         $result = mysql_query($query);
         
         $products = array();
@@ -124,13 +125,35 @@ class ProductsStuff {
         return $categories;
     }
     
+    public function getAllSizes() {
+        
+        $this->connectDb();  
+        
+        $query = "SELECT id, value FROM sizes";
+        $result = mysql_query($query);
+        
+        $sizes = array();
+        
+        while ($row = mysql_fetch_array($result)) {
+            $size = new ProductSize();
+            $size->id = $row["id"];
+            $size->value = $row["value"];
+            
+            $sizes[] = $size;
+        }
+        
+        $this->disconnectDb();
+        
+        return $sizes;
+    }
+    
     public function addProduct(ProductInfo $productInfo) {
         
         $this->connectDb();        
         
         $category = $productInfo->category;
-        $categoryQuery = "INSERT IGNORE INTO categories (name) VALUES (\"$category->name\")";
-        mysql_query($categoryQuery);
+       /* $categoryQuery = "INSERT IGNORE INTO categories (name) VALUES (\"$category->name\")";
+        mysql_query($categoryQuery);*/
         
         $categoryQuery = "SELECT id FROM categories WHERE name = \"$category->name\"";
         $result = mysql_query($categoryQuery);
@@ -140,11 +163,12 @@ class ProductsStuff {
 
         $productQuery = "INSERT INTO products 
             (name, image_url, price, category, description) 
-            VALUES (\"$productInfo->name\", 
-                $productInfo->getImageURL(), 
+            VALUES (\"$productInfo->name\", \"". 
+                $productInfo->getRawImageURL()."\", 
                 $productInfo->price, 
                 $category->id, 
                 \"$productInfo->description\")";
+        
         
         mysql_query($productQuery);
         
@@ -153,11 +177,12 @@ class ProductsStuff {
         $sizesQuery = "INSERT INTO products_sizes (pid, sid) VALUES ";
         
         foreach ($productInfo->sizes as $i => $size) {
-            if ($i > 0) {
-                $sizesQuery .= ", ";
-            }
-            $sizesQuery .= " ($pid, $size->id)";
+            /*if ($i > 0) {
+                $sizesQuery .= " ";
+            }*/
+            $sizesQuery .= " ($pid, $size->id),";
         }
+        $sizesQuery = substr($sizesQuery, 0, strlen($sizesQuery)-1);
         
         mysql_query($sizesQuery);
         
