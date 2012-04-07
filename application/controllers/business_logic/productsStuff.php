@@ -12,6 +12,7 @@
  */
 
 include_once "productInfo.php";
+include_once "commentInfo.php";
 
 class ProductsStuff {
     
@@ -353,6 +354,62 @@ class ProductsStuff {
          $this->disconnectDb();
          
          return $product;
+    }
+    
+    public function addComment(CommentInfo $comment) {
+        
+        $product = $comment->product;
+        $user = $comment->author;
+        
+        $query = "INSERT INTO comments
+            (pid, uid, text) 
+            VALUES 
+            ($product->id, $user->id, \"$comment->text\")";
+        
+        $this->connectDb();
+        
+        mysql_query($query);
+        $comment->id = mysql_insert_id();;
+        
+        $this->disconnectDb();
+    }
+    
+    public function getComments(ProductInfo $product) {
+        
+        $query = "SELECT c.id, c.text, 
+        u.id as uid, u.address, u.fio, u.username, u.password, u.isAdmin, u.email 
+            FROM users u, comments c 
+            WHERE u.id = c.uid AND c.pid = $product->id";
+        
+        $this->connectDb();
+        
+        $result = mysql_query($query);
+        
+        $comments = array();
+        
+        while ($row = mysql_fetch_array($result)) {
+            $comment = new CommentInfo();
+            $comment->id = $row["id"];
+            $comment->product = $product;
+            $comment->text = $row["text"];
+            
+            $user = new UserInfo();
+            $user->uid=$row["uid"];
+            $user->address=$row["address"];
+            $user->fio=$row["fio"];
+            $user->login=$row["login"];
+            $user->password=$row["password"];
+            $user->isAdmin=$row["isAdmin"];
+            $user->email=$row["email"];
+            
+            $comment->author = $user;
+            
+            $comments[] = $comment;
+        }
+        
+        $this->disconnectDb();
+        
+        return $comments;
     }
 }
 
