@@ -41,7 +41,7 @@
 }
 
 #active_size{
-	background-image:url(images/grey_full_circle.png);
+	background-image:url(/images/grey_full_circle.png);
 	color: #343434;
 	
 }
@@ -51,7 +51,7 @@
 	margin-right: 12px;
 	display:inline;
 	float:left;
-	background-image:url(images/grey_circle.png);
+	background-image:url(/images/grey_circle.png);
 	background-repeat:no-repeat;
 	color: #999999;
 	padding-top: 9px;
@@ -117,23 +117,23 @@
 #shoe-info input, textarea, select{
 	border:0;
 	outline: none;
-    border-radius:4px;
+        border-radius:4px;
 	margin-bottom: 25px;
 	
-	/*font: 14px/22px Verdana;*/
+	font: 14px/30px Verdana;
 	padding-left: 4px;
 }
 
 #in_name{
 	margin-top: 5px;
-	font: 36px/38px Verdana;
-	/*margin-bottom: 21px;*/
+	/*font: 36px/38px Verdana;
+	margin-bottom: 21px;*/
 	width: 400px;
 }
 
 #in_TA{
-	font: 11pt/13pt Verdana;
-	/*margin-bottom: 21px;*/
+	/*font: 11pt/13pt Verdana;
+	margin-bottom: 21px;*/
 	width: 400px;
 	max-width:400px;
 	height: 90px;
@@ -141,20 +141,60 @@
 }
 
 #in_cat{
-	font: 11pt/13pt Verdana;
-	/*margin-bottom: 21px;*/
+	/*font: 11pt/13pt Verdana;
+	margin-bottom: 21px;*/
 	width: 400px;
 }
 #in_siz{
-	font: 11pt/13pt Verdana;
-	/*margin-bottom: 21px;*/
+	/*font: 11pt/13pt Verdana;
+	margin-bottom: 21px;*/
 	width: 200px;
 	height: 100px;
+        margin-right: 200px;
 }
 
 #in_price{
-	font: 30pt Verdana;
-	/*margin-bottom: 21px;*/
+	/*font: 30pt Verdana;
+	margin-bottom: 21px;*/
 	width: 200px;
 	display:block;
 }
+
+#in_foto{
+    width:400px;
+    color: #fff;
+}
+.lbls{
+	display:block;
+	float:left;
+	width: 105px;
+	color:#999999;
+	font: 14px/25px Verdana;	
+	text-align:right;
+	padding-right: 15px;
+}
+
+#related h2, newComment h2{
+    color:#fff;
+    font: 14px/22px Verdana;
+    padding-left: 5px;
+    width: 550px;
+}
+
+#related p{
+    color:#999999;
+    font: 14px/18px Verdana;
+    padding-left: 10px;
+    width:550px;
+}
+
+#newComment{
+   width: 500px;
+}
+
+#newComment input{
+    margin-top: -25px;
+}
+
+
+

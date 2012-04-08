@@ -108,7 +108,17 @@
         if (count($relItems) > 0){
             $data['relItems'] = $relItems; 
             $this->load->view('related_items', $data); 
-        }?>
+        }
+        
+        $userInfo=$_SESSION['basketStuff']->getUserInfo();
+        if (($userInfo <> NULL) && ($userInfo->uid <> NULL)){
+            $data['product'] = $product;
+            $data['userInfo'] = $userInfo;
+            $data['id']=$idInStuff;
+            $this->load->view('comments', $data); 
+        }
+            
+        ?>
     
     </table>
 </div><!-- #content-->

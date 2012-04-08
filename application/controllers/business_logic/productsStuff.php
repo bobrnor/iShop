@@ -364,7 +364,7 @@ class ProductsStuff {
         $query = "INSERT INTO comments
             (pid, uid, text) 
             VALUES 
-            ($product->id, $user->id, \"$comment->text\")";
+            ($product->id, $user->uid, \"$comment->text\")";
         
         $this->connectDb();
         
@@ -397,7 +397,7 @@ class ProductsStuff {
             $user->uid=$row["uid"];
             $user->address=$row["address"];
             $user->fio=$row["fio"];
-            $user->login=$row["login"];
+            $user->username=$row["username"];
             $user->password=$row["password"];
             $user->isAdmin=$row["isAdmin"];
             $user->email=$row["email"];

@@ -60,7 +60,7 @@ class Items extends CI_Controller {
         
         $_SESSION['currentStuff']=$stuff;*/
         
-        if ($prId>0)
+        if ($prId<>NULL && $prId>0)
             $data['product']=$productsStuff->getProductById($prId);
         else
             $data['product']=NULL;

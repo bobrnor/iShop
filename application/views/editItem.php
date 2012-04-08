@@ -19,14 +19,10 @@
 
 
 <div id="content">
-    <table id="itemInfo"><tr>
-    	<!--<td class="arrow"><a href="#"><img src="images/grey_left_arrow.png" width="48" height="95" /></a></td>-->
-        <td id="shoes"><a href="#"><img src="/images/admin_add_bigpic.png" /></a> </td>
-        <td id="shoe-info">
-            
-        <form method="post">
-            <input required name="fName" type="text" placeholder="модель..." id="in_name" /> 
-            <select name="fCat" required id="in_cat">
+   
+        <form method="post" style="width:530px; margin: 0 auto 0;" id="shoe-info" enctype="multipart/form-data">
+            <div class="lbls">Модель:</div><input required name="fName" type="text" placeholder="модель..." id="in_name" /> 
+            <div class="lbls">Категория:</div><select name="fCat" required id="in_cat">
                 <option disabled>Выберите категорию</option>
             <?php 
                 $productStuff = new ProductsStuff();
@@ -35,9 +31,11 @@
                     <option value="<?=$cat->id?>"><?=$cat->name?></option>
                 <? endforeach; ?>
             </select>
-            <textarea spellcheck="false" name="fText" wrap="hard" value ="" placeholder="описание..." id="in_TA"></textarea>
+            <div class="lbls">Описание:</div><textarea spellcheck="false" name="fText" wrap="hard" value ="" placeholder="описание..." id="in_TA"></textarea>
             
-            <select name="fSizes[]" required id="in_siz" multiple>
+            <div class="lbls">Фото:</div><input name="foto" type="file"  id="in_foto" />
+            <div class="lbls">Фото-превью:</div><input type="file" name="prefoto" id="in_foto" />
+            <div class="lbls">Размеры:</div><select name="fSizes[]" required id="in_siz" multiple>
                 <option disabled>Выберите размеры</option>
             <?php
                 $sizes = $productStuff->getAllSizes();
@@ -47,18 +45,34 @@
                 <? endforeach; ?>
             </select>
             
-            <input required name="fPrice" type="text" placeholder="цена..." id="in_price" /> 
+            <div class="lbls">Цена:</div><input required name="fPrice" type="text" placeholder="цена..." id="in_price" /> 
+            
             <input name="addItem" type="image" src="/images/admin_additem.png" />
             
             <?php
                 if (isset($_POST['addItem_x'])){
                     unset($_POST['addItem_x']);
                     $product = new ProductInfo();
+                    if(is_uploaded_file($_FILES["foto"]["tmp_name"])){
+                         $upfile = getcwd()."\\images\\items\\".basename($_FILES["foto"]["name"]);
+                         $product->setImageUrl($_FILES["foto"]["name"]);   
+                         move_uploaded_file($_FILES["foto"]["tmp_name"], $upfile);
+                   }
+                   else {
+                      echo("Error =(");
+                   }
+                   if(is_uploaded_file($_FILES["prefoto"]["tmp_name"])){
+                     $upfile = getcwd()."\\images\\items\\preview_".basename($_FILES["prefoto"]["name"]);
+                     move_uploaded_file($_FILES["prefoto"]["tmp_name"], $upfile);
+                   }
+                   else {
+                      echo("Error =(");
+                   }
+                    
                     $product->name = $_POST['fName'];
                     $product->category = categoryById($cats, $_POST['fCat']);
                     $product->description = $_POST['fText'];
                     $product->price = $_POST['fPrice'];
-                    $product->setImageUrl("nothing");
                     
                     $ch_sizes=$_POST['fSizes'];
                     foreach($ch_sizes as $size){
@@ -71,15 +85,4 @@
                 }
             ?>
         </form>
-        </td>
-      <!--  <td class="arrow"><a href="#"><img src="images/grey_right_arrow.png" width="48" height="95" /></a></td>    -->
-    </tr>
-   
-    </table>
-    
-    
-    
-    
- 
-		
-	</div><!-- #content-->
+</div><!-- #content-->
