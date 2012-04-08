@@ -2,8 +2,15 @@
 <div id="content">
 <?php 
     if ($payOk == 1){
-        $userInfo = $_SESSION['basketStuff']->getUserInfo();
-        $orderInfo = $_SESSION['basketStuff']->getOrderInfo();
+         $userInfo = $_SESSION['basketStuff']->getUserInfo();
+         $orderInfo = $_SESSION['basketStuff']->getOrderInfo();
+        
+         $productStuff = new ProductsStuff();
+         $productStuff->addRelatedProducts($orderInfo->orderedProductsInfo);
+        
+       
+        if ($userInfo==NULL)
+            header("Location: /index.php/");
         if (!($userInfo->email == '')){
             $mSender = new MailSender();
             $mSender->sendMail($orderInfo);

@@ -32,15 +32,7 @@
 
                 
                 <input name="btnPay" type="image" src="/images/basket_pay.png" id="btnReg"/>
-                <?php
-                    if (isset($_POST['btnPay_x'])){
-                        unset($_POST['btnPay_x']);
-                        
-                             $productStuff = new ProductsStuff();
-                             $productStuff->addRelatedProducts($stuff);
-                            
-                    }
-                ?>
+               
             </form>
         </td>
     
